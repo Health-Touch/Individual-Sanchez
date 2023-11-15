@@ -20,6 +20,7 @@ class Repositorio {
         janelas.janelas.forEachIndexed { p, janela ->
             campoJanela.nomeJanela = janela.titulo
             campoJanela.id = janela.janelaId
+            campoJanela.dtJanela = LocalDateTime.now()
 
             if (janela.titulo != null && janela.titulo.isNotBlank()) {
                 println(
@@ -30,8 +31,8 @@ class Repositorio {
         """.trimIndent())
 
                 jdbcTemplate.update("""
-            insert into Janela(pidJanela, tituloJanela, fkMaquina, fkEmpresa, fkPlanoEmpresa, fkTipoMaquina) values
-           ('${campoJanela.id}', '${campoJanela.nomeJanela}', ${campoJanela.fkMaquina},  ${campoJanela.fkEmpresa},  ${campoJanela.fkPlanoEmpresa},  ${campoJanela.fkTipoMaquina})
+            insert into Janela(pidJanela, tituloJanela, dtJanela, fkMaquina, fkEmpresa, fkPlanoEmpresa, fkTipoMaquina) values
+           ('${campoJanela.id}', '${campoJanela.nomeJanela}', '${campoJanela.dtJanela}', ${campoJanela.fkMaquina},  ${campoJanela.fkEmpresa},  ${campoJanela.fkPlanoEmpresa},  ${campoJanela.fkTipoMaquina})
         """.trimIndent())
             }
 
