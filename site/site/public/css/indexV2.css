@@ -1,0 +1,1293 @@
+* {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* começo do cabeçalho */
+.paiCabecalho {
+    background-color: #020F1F;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filhoCabecalho {
+    width: 90vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.direitaCabecalho {
+    width: 15vw;
+    font-weight: bold;
+}
+
+#alertText {
+    cursor: pointer;
+}
+
+.subDireitaCabecalho {
+    color: white;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-around; 
+}
+
+#menuIcon {
+    width: 1vw;
+    height: 2vh;
+}
+
+.esquerdaCabecalho {
+    width: 20vw;
+}
+
+.esquerdaCabecalho img:hover{
+    cursor: pointer;
+}
+
+#imgEsquerdaCabecalho {
+    width: 9vw;
+    height: 10vh;
+}
+
+.subDireitaCabecalho a {
+    list-style: none;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: all 0.3s ease-out 0s;
+    cursor: pointer;
+}
+
+.subDireitaCabecalho a:hover{
+    color: #26ABA7;
+    box-shadow: 0px 2px 0px #26ABA7;
+    transition: all 0.3s ease-out;
+}
+
+/* fim do cabeçalho */
+
+/* começo do banner */
+.paiBanner {
+    display: flex;
+    height: 103vh;
+    background-repeat: no-repeat;
+    background-image: url(..//assets/img/bannerPrincipal.jpg);
+    background-size: 100%;
+}
+
+.divFilhoBanner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 23vh;
+    width: 50vw;
+    top: 30%;
+    left: 45%;
+    position: relative;
+}
+
+.pTituloBanner {
+    font-size: 40px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    text-shadow: 1px 2px 5px rgba(0, 0, 0, 1);
+}
+
+.divBoxBotaoBanner {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 15%;
+}
+
+.divBoxBotaoBanner a {
+    text-decoration: none;
+}
+
+.botaoBanner {
+    width: 20vw;
+    justify-content: space-around;
+    display: flex;
+}
+
+.botao1Banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 8vw;
+    height: 6vh;
+    border-radius: 30px;
+    font-size: 12px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    border: 3px #ffffff solid;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.botao2Banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 8vw;
+    height: 6vh;
+    border-radius: 30px;
+    font-size: 12px;
+    background-color: #26ABA7;
+    border: none;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.botao2Banner:hover {
+    box-shadow: 0px 5px 20px rgb(0, 0, 0);
+    transform: translateY(-7px);
+    background-color: #fff;
+    color: #26ABA7;
+    border: 3px #26ABA7 solid;
+}
+
+.botao1Banner:hover{
+    box-shadow: 0px 5px 20px rgb(0, 0, 0);
+    transform: translateY(-7px);
+    background-color: #fff;
+    color: #26ABA7;
+    border: 3px #26ABA7 solid;
+}
+/* fim do banner */
+
+/* começo do contexto */
+.paiContexto {
+    background-color: #020F1F;
+    height: 180vh;
+    display: flex;
+    justify-content: center;
+}
+
+.filhoContexto {
+    width: 80%;
+    height: 180vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.divTituloContexto {
+    font-size: 35px;
+    color: white;
+    font-weight: bold;
+    line-height: 60px;
+}
+
+.divSubContexto {
+    color: #26ABA7;
+    font-weight: bold;
+}
+
+.paiBoxContexto {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    top: 6%;
+}
+
+.boxContexto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 18vw;
+    height: 45vh;
+    border-radius: 20px;
+    border: 2px solid white;
+    background-color: #020F1F;
+    position: relative;
+    top: 10%;
+}
+
+.tituloBox {
+    color: #ffffff;
+    font-weight: bold;
+    position: relative;
+    top: 5%;
+}
+
+.textoBox {
+    text-align: center;
+    width: 16vw;
+    color: #ffffff;
+    position: relative;
+    top: 10%;
+    font-size: 14px;
+}
+
+#botaoBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10vw;
+    height: 5vh;
+    border-radius: 30px;
+    font-size: 12px;
+    background-color: #26ABA7;
+    border: none;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    position: relative;
+    top: 17%;
+    text-decoration: none;
+}
+
+#botaoBox:hover {
+    box-shadow: 0px 5px 20px rgb(0, 0, 0);
+    transform: translateY(-7px);
+    background-color: #fff;
+    color: #26ABA7;
+    border: 3px #26ABA7 solid;
+}
+
+#botaoBoxMeio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10vw;
+    height: 5vh;
+    border-radius: 30px;
+    font-size: 12px;
+    background-color: #26ABA7;
+    border: none;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    position: relative;
+    top: 23%;
+    text-decoration: none;
+}
+
+#botaoBoxMeio:hover {
+    box-shadow: 0px 5px 20px rgb(0, 0, 0);
+    transform: translateY(-7px);
+    background-color: #fff;
+    color: #26ABA7;
+    border: 3px #26ABA7 solid;
+}
+
+.divComoFunciona {
+    font-size: 27px;
+    color: white;
+    font-weight: bold;
+    line-height: 60px;
+    position: relative;
+    top: 20%;
+}
+
+.divSubComoFunciona {
+    color: #26ABA7;
+    font-weight: bold;
+    position: relative;
+    top: 20%;
+}
+
+.paiBoxComoFunciona {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    top: 23%;
+    width: 70vw;
+    height: 30vh;
+}
+
+.boxComoFunciona {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 20vw;
+    height: 30vh;
+}
+
+#imgComoFunciona {
+    width: 5.5vw;
+    height: 11vh;
+    position: relative;
+    top: -5%;
+}
+
+#pComoFunciona {
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+}
+/* fim do contexto */
+
+/* começo do beneficios */
+.divPaiBeneficios {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 90vh;
+    background-repeat: no-repeat;
+    background-image: url(..//assets/img/bannerCheckIn.jpg);
+    background-size: 100%;
+}
+
+#tituloBeneficios {
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    position: relative;
+    top: 5%;
+}
+
+#subTituloBeneficios {
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    position: relative;
+    top: 6%;
+}
+
+.boxPaiBeneficios {
+    width: 70vw;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    top: 15%;
+}
+
+.boxBeneficios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 18vw;
+    height: 45vh;
+    border-radius: 20px;
+    border: 2px solid white;
+    background-color: #020F1F;
+    opacity: 90%;
+    position: relative;
+    top: 10%;
+}
+
+.boxBeneficios:hover{
+    transform: scale(1.1);
+    transition: 0.4s;
+}
+
+#iconHospitalBeneficios {
+    width: 5vw;
+    height: 10vh;
+    position: relative;
+    top: 5%;
+}
+
+.tituloBoxBeneficios {
+    color: #ffffff;
+    font-weight: bold;
+    position: relative;
+    top: 8%;
+}
+
+.textoBoxBeneficios {
+    text-align: center;
+    width: 16vw;
+    color: #ffffff;
+    position: relative;
+    top: 13%;
+    font-size: 14px;
+}
+/* fim do beneficios */
+
+/* começo nossa equipe */
+.divPaiNossaEquipe {
+    background-color: #020F1F;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#tituloNossaEquipe {
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    position: relative;
+    top: 5%;
+}
+
+#subTituloNossaEquipe {
+    font-size: 18px;
+    color: white;
+    position: relative;
+    top: 7%;
+}
+
+.boxPaiEquipe {
+    width: 70vw;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    top: 7%;
+}
+
+.boxEquipe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 18vw;
+    height: 45vh;
+    background-color: #020F1F;
+    position: relative;
+    top: 10%;
+}
+
+.imgEquipe {
+    width: 85%;
+    height: 35vh;
+    position: relative;
+    top: 5%;
+}
+
+.divSubEquipe {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 85%;
+    height: 10vh;
+    background-color: #26ABA7;
+    position: relative;
+    top: 5%;
+}
+
+#tituloFotoEquipe {
+    color: white;
+    font-weight: bold;
+}
+
+#cargoFotoEquipe {
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+#setaEquipeDireita {
+    width: 4vw;
+    height: 8vh;
+    position: relative;
+    top: 55%;
+    right: 6%;
+    cursor: pointer;
+}
+
+#setaEquipeEsquerda {
+    width: 4vw;
+    height: 8vh;
+    position: relative;
+    top: 55%;
+    left: 6%;
+    cursor: pointer;
+}
+/*fim nossa equipe */
+
+/* Começo do Plano */
+.divPlanoPai{
+    background-color: #020F1F;
+}
+
+.divPlanoFilho{
+    display: flex;
+    flex-direction: column;
+}
+
+.tituloPlano{
+    color: #fff;
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.textoPlano{
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    margin-top: 15px;
+}
+
+.caixas{
+    align-self: center;
+    align-items: center;
+    display: flex;
+    width: 80%;
+    /* width: 80%;
+    margin: auto; */
+    justify-content: space-evenly;
+    margin: 50px 0;
+}
+
+.boxPlanoLado{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 320px;
+    border: solid 2px #fff;
+    align-items: center;
+}
+
+.boxPlanoMeio{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 410px;
+    border: solid 2px #fff;
+    align-items: center;
+}
+
+.divDegrade{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgb(38,171,167);
+    background: linear-gradient(180deg, rgba(38,171,167,1) 0%, rgba(38,171,167,0) 100%);
+    width: 100%;
+}
+
+.nomePlano{
+    color: #fff;
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.nomePlanoLado{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.precoPlano{
+    color: #fff;
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.miniPreco{
+    font-size: 35px;
+}
+
+.iconPlano{
+    width: 95px;
+    height: 95px;
+    transition: all 0.65s;
+    transform: rotateY(0deg); /* Inicialmente, o elemento não está girado */
+}
+
+.iconPlano:hover{
+    transform: rotateY(360deg);
+}
+
+.iconPlanoLado:hover{
+    transform: rotateY(360deg);
+}
+
+.iconPlanoLado{
+    width: 65px;
+    height: 65px;
+    transition: transform 0.65s;
+    transform: rotateY(0deg); /* Inicialmente, o elemento não está girado */
+    position: relative;
+    top: 6%;
+}
+
+
+.beneficiosPlano{
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    justify-content: space-around;
+    margin: 20px 0;
+    width: 80%;
+    position: relative;
+    left: 15%;
+}
+
+.beneficiosPlanoLado{
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    justify-content: space-around;
+    margin: 20px 0;
+    width: 80%;
+    position: relative;
+    left: 18%;
+    top: -3%;
+}
+
+.beneficios{
+    display: flex;
+}
+
+.txtBeneficio{
+    color: #fff;
+    font-size: 16px;
+}
+
+
+.txtBeneficioLado{
+    color: #fff;
+    font-size: 13px;
+}
+
+.iconBeneficio{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.iconBeneficioLado{
+    width: 17px;
+    height: 17px;
+    margin-right: 10px;
+}
+
+.btnPlano{
+    color: #fff;
+    background-color: #26ABA7;
+    border-radius: 5px;
+    font-size: 18px;
+    width: 150px;
+    height: 40px;
+    border: none;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+}
+
+.btnPlano:hover {
+    box-shadow: 0px 5px 20px rgb(0, 0, 0);
+    transform: translateY(-7px);
+    background-color: #fff;
+    color: #26ABA7;
+    border: 3px #26ABA7 solid;
+}
+
+.btnPlanoLado {
+    color: #fff;
+    background-color: #26ABA7;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100px;
+    height: 30px;
+    border: none;
+    position: relative;
+    top: -5%;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+}
+
+.btnPlanoLado:hover {
+    box-shadow: 0px 5px 20px rgb(0, 0, 0);
+    transform: translateY(-7px);
+    background-color: #fff;
+    color: #26ABA7;
+    border: 3px #26ABA7 solid;
+}
+
+.boxPlano:hover{
+    background: rgb(38,171,167);
+    background: linear-gradient(0deg, rgba(38,171,167,1) 0%, rgba(38,171,167,0) 100%);
+
+.divDegrade{
+    background: rgb(38,171,167);
+    background-color: transparent;
+}
+
+.btnPlano{
+    background-color: #020F1F;
+    color: #fff;
+    cursor: pointer;
+}
+}
+
+/* Fim do Plano */
+
+/* começo do contato */
+.divPaiContato {
+    height: 30vh;
+    background-color: #020F1F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divFilhoContato {
+    width: 70vw;
+    height: 20vh;
+    border-radius: 10px;
+    border: 1px solid #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.cimaContato {
+    width: 70vw;
+    height: 3vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.esquerdaCimaContato {
+    display: flex;
+    justify-content: space-around;
+    width: 15vw;
+    height: 5vh;
+    position: relative;
+    right: 2.7%;
+}
+
+#tituloContato {
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+}
+
+#imgContato {
+    width: 2vw;
+    height: 4vh;
+}
+
+.baixoContato {
+    width: 70vw;
+    height: 4vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#subTituloContato {
+    font-size: 20px;
+    color: white;
+    position: relative;
+    right: 0.8%;
+}
+
+.esquerdaBaixoContato {
+    display: flex;
+    justify-content: space-around;
+    width: 17vw;
+    height: 5vh;
+    position: relative;
+    left: 1.5%;
+}
+
+#emailContato {
+    color: #ffffff;
+}
+
+#telefoneContato {
+    color: #ffffff;
+}
+/* fim do contato */
+
+/* começo do rodapé */
+.divPaiRodape {
+    background-color: #020F1F;
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+}
+
+.divFilhoRodape {
+    background-color: #020F1F;
+    width: 80%;
+    height: 40vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.esquerdaRodape {
+    width: 20vw;
+    height: 30vh;
+}
+
+#logoCabecalho {
+    width: 9vw;
+    height: 10vh;
+}
+
+#textoCabecalho {
+    font-size: 14px;
+    color: white;
+}
+
+#iconCabecalho {
+    width: 2vw;
+    height: 4vh;
+    position: relative;
+    top: 7%;
+}
+
+#iconCabecalho:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.meioRodape {
+    display: flex;
+    flex-direction: column;
+    align-items: start;    
+    width: 10vw;
+    height: 30vh;
+}
+
+#tituloMeioCabecalho {
+    color: white;
+    font-weight: bold;
+}
+
+#pMeioCabecalho {
+    color: lightgrey;
+    margin: 7px;
+    position: relative;
+    right: 6%;
+    text-decoration: none;
+}
+
+#pMeioCabecalho:hover{
+    color: #26ABA7;
+    box-shadow: 0px 2px 0px #26ABA7;
+    transition: all 0.3s ease-out;
+  }
+
+.direitaRodape {
+    width: 20vw;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#tituloDireitaCabecalho {
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.divDireitaCabecalho {
+    height: 5vh;
+    width: 17vw;
+    border-radius: 10px;
+    background-color: #020F1F;
+    border: white solid 3px;
+    position: relative;
+    top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: darkgray;
+    font-size: 13px;
+}
+
+.botaoDireitaCabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 13vw;
+    height: 5vh;
+    border-radius: 10px;
+    font-size: 12px;
+    color: white;
+    background-color: #26ABA7;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    top: 14%;
+    border: none;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+}
+
+
+.botaoDireitaCabecalho:hover {
+    box-shadow: 0px 5px 20px rgb(0, 0, 0);
+    transform: translateY(-7px);
+    background-color: #fff;
+    color: #26ABA7;
+    border: 3px #26ABA7 solid;
+}
+
+/* fim do rodapé */
+/* COMEÇO MOBILE */
+@media only screen and (max-width: 600px){
+  /* começo do cabeçalho mobile */
+.paiCabecalho {
+    width: 100%;
+    height: 80%;
+}
+
+.direitaCabecalho {
+    width: 47vw;
+}
+
+#imgEsquerdaCabecalho {
+    width: 7rem;
+    height: 4%;
+}
+/* fim do cabeçalho mobile */  
+
+/* começo do banner mobile */
+.paiBanner {
+    width: 100%;
+    height: 18rem;
+    background-size: cover;
+    background-position: 40%;
+}
+
+.divFilhoBanner {
+    top: 3%;
+    left: 40%;
+}
+
+.pTituloBanner {
+    font-size: 18px;
+    line-height: 30px;
+    }
+
+.divBoxBotaoBanner {
+    position: relative;
+    top: 4%;
+    right: 10%;
+    width: 15rem;
+}
+
+.botaoBanner {
+    width: 50vw;
+    justify-content: space-between;
+}
+
+.botao1Banner {
+    width: 6rem;
+    height: 4vh;
+}
+
+.botao2Banner {
+    width: 6rem;
+    height: 4vh;
+
+}
+/* fim do banner mobile */
+
+/* começo do contexto mobile */
+.paiContexto {
+    width: 100%;
+    height: 95rem;   
+}
+
+.filhoContexto {
+    width: 80%;
+    height: 50rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.divTituloContexto {
+    font-size: 20px;   
+}
+
+.divSubContexto{
+    font-size: 14px;
+}
+
+.paiBoxContexto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: -5%;
+    height: 90rem;
+    justify-content: space-between;
+    
+}
+
+.boxContexto {
+    width: 60vw;
+    height: 30vh;
+    position: relative;
+    top: 10%;
+    margin-bottom: 3rem;
+}
+
+.textoBox {
+    width: 50vw;
+}
+
+#botaoBox {
+    
+    width: 25vw;
+    height: 4vh;
+  
+}
+
+.divComoFunciona {
+    width: 110%;
+    font-size: 20px;
+    top: 10%;
+}
+
+.divSubComoFunciona {
+    width: 105%;
+    font-size: 14px;
+    top: 10%;
+}
+
+.paiBoxComoFunciona {
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+    top: 10%;
+    width: 100%;
+    height: 10rem;
+    flex-wrap: wrap;
+}
+
+.boxComoFunciona {
+    flex-direction: column;
+    /* width: 25vw; */
+    height: 30vh;
+    position: relative;
+    left: 6%;
+}
+
+#imgComoFunciona {
+    width: 14vw;
+    height: 6vh;
+    
+}
+
+#pComoFunciona {
+    font-size: 14px;
+    text-align: center;
+}
+/* fim do contexto mobile*/
+
+/* começo do beneficios mobile */
+.divPaiBeneficios {
+    height: 119vh;
+    width: 100%;
+    background-size: cover;
+    background-position: 50%;
+}
+
+#tituloBeneficios {
+    font-size: 25px;
+    top: 3%;
+}
+
+#subTituloBeneficios {
+    font-size: 15px;
+    top: 4%;
+}
+
+.boxPaiBeneficios {
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 7%;
+    left: 5%;
+}
+
+.boxBeneficios {
+    width: 60vw;
+    height: 30vh;
+    top: 2%;
+    margin-bottom: 30px;
+}
+
+
+
+#iconHospitalBeneficios {
+    width: 13vw;
+    height: 7vh;
+}
+
+.tituloBoxBeneficios {
+    position: relative;
+    top: 8%;
+}
+
+.textoBoxBeneficios {
+    width: 60vw;
+}
+/* fim do beneficios mobile */
+
+/* Começo da equipe mobile */
+#tituloNossaEquipe{
+    font-size: 25px;
+}
+
+#subTituloNossaEquipe{
+    width: 80%;
+    font-size: 16px;
+    text-align: center;
+}
+
+.divPaiNossaEquipe{
+    height: 50vh;
+}
+
+.boxPaiEquipe{
+    width: 80%;
+    top: 5%;
+}
+
+#setaEquipeDireita,#setaEquipeEsquerda{
+    height: 4vh;
+}
+
+.boxEquipe{
+    width: 100%;
+    height: 30vh;
+}
+
+.divSubEquipe{
+    height: 15vh;
+    width: 90%;
+}
+
+#cargoFotoEquipe,#tituloFotoEquipe3,#tituloFotoEquipe1{
+    text-align: center;
+}
+
+.imgEquipe{
+    width: 90%;
+}
+
+/* Fim da equipe mobile */
+
+/* Começo dos Planos */
+.tituloPlano {
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+.textoPlano{
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.caixas{
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.boxPlano{
+    width: 250px;
+    height: 325px;
+    margin: 15px 0;
+}
+
+.precoPlano{
+    font-size: 40px;
+}
+
+.miniPreco {
+    font-size: 33px;
+}
+/* Fim dos Planos */
+
+/* começo do rodapé*/
+.divPaiRodape {
+    height: 22vh;
+    width: 100%;
+}
+
+.divFilhoRodape {
+    background-color: #020F1F;
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.esquerdaRodape,.meioRodape,.direitaRodape {
+    width: 33.3%;
+    height: auto;
+    /* height: 30vh; */
+}
+
+.meioRodape{
+    margin-left: 15px;
+}
+
+#tituloMeioCabecalho{
+    font-size: 14px;
+}
+
+#pMeioCabecalho {
+    font-size: 12px;
+}
+
+#logoCabecalho {
+    width: 24vw;
+    height: 7vh;
+}
+
+#textoCabecalho {
+    font-size: 12px;
+    width: 35vw;
+    color: white;
+    margin-bottom: 15px;
+}
+
+#iconCabecalho {
+    width: 5vw;
+    height: 2.5vh;
+    position: relative;
+    top: 7%;
+}
+
+
+#tituloDireitaCabecalho {
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 10px;
+    /* width: 15vh; */
+}
+
+.divDireitaCabecalho {
+    height: 4vh;
+    width: 31vw;
+}
+
+.botaoDireitaCabecalho {
+    width: 25vw;
+    height: 3vh;
+    margin-top: 10px;
+}
+/* fim do rodapé */
+
+}
+/* FIM MOBILE */ 

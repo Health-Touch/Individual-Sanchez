@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/TelaSanchez.css">
+    <!-- <script src="./js/dashSetor.js"></script> -->
+    <script src="js/funcoes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="shortcut icon" type="imagex/png" href="./assets/img/logo_icon.png" />
+    <title>Análise Máquina | Health Touch</title>
+</head>
+<!-- <body onload="validarSessao(), validarSetor(), validarStatusUsb(), cpuMensal(), ramMensal(), discoMensal(), insightCpu(), insightRam(), insightDisco(), analiseGeral(), exibirAlertas()"> -->
+
+<body >
+    <div class="divPai">
+        <!-- inicio menu lateral -->
+        <div class="divPaiLateral">
+            <div class="filhoLateral">
+
+                <div class="divNomeEmpresa">
+
+                    <p id="textoEmpresa">Bem Vindo</p>
+                    <p id="nomeEmpresa">Bem Vindo <br><span> Nome da Empresa </span></p>
+                </div>
+
+                <div class="divMainMenu">
+                    <p id="pMainMenu">MAIN MENU</p>
+                </div>
+
+                <div class="divPaiOpcoesMenu">
+                    <a href="setores.html" id="pMenuLateral">
+                        <div class="divHome">
+                            <img id="iconMenuLateralHome" src="assets/img/grafico-de-setores.png">
+                            <div class="divEspaco"></div>
+                            Setores
+                        </div>
+                    </a>
+
+                    <a href="cadastroMaquinas.html" id="pMenuLateral">
+                        <div class="divComputador">
+                            <img id="iconComputadorLateral" src="assets/img/computador (4).png">
+                            <div class="divEspaco"></div>
+                            Cadastro Máquinas
+                        </div>
+                    </a>
+
+                    <a href="analiseMaquinaTI.html" id="pMenuLateral">
+                        <div class="divCadastroComputador">
+                            <img id="iconComputadorCadLateral" src="assets/img/definicoes.png">
+                            <div class="divEspaco"></div>
+                            Análise Máquinas
+                        </div>
+                    </a>
+
+                    <a href="cadastroFuncionarios.html" id="pMenuLateral">
+                        <div class="divAnaliseEquipe">
+                            <img id="iconAnaliseEquipe" src="assets/img/carteira-de-identidade.png">
+                            <div class="divEspaco"></div>
+                            Cadastro Equipe
+                        </div>
+                    </a>
+
+                    <a href="analiseFuncionario.html" id="pMenuLateral">
+                        <div class="divDashboards">
+                            <img id="iconDashboardsLateral" src="assets/img/equipe.png">
+                            <div class="divEspaco"></div>
+                            Análise Funcionários
+                        </div>
+                    </a>
+
+                    <a href="" id="pMenuLateral">
+                        <div class="divCadastroEquipe">
+                            <img id="iconCadastroEquipe" src="assets/img/mais (2).png">
+                            <div class="divEspaco"></div>
+                            Dashboards
+                        </div>
+                    </a>
+                </div>
+
+                <div class="divEspacoV2"></div>
+
+                <div class="divHelp">
+                    <p id="pHelp">HELP</p>
+                </div>
+
+                <div class="divPaiHelpMenu">
+                    <a href="SuporteHealthTooch.html" id="pMenuLateral">
+                        <div class="divHelpDesk">
+                            <img id="iconHelpDesk" src="assets/img/suporte-ao-cliente.png">
+                            <div class="divEspaco"></div>
+                            HelpDesk
+                        </div>
+                    </a>
+                    <a href="AtualizarUser.html" id="pMenuLateral">
+                        <div class="divConfiguracoes">
+                            <img id="iconConfiguracoes" src="assets/img/botao-de-roda-dentada-de-configuracoes.png">
+                            <div class="divEspaco"></div>
+                            Configurações
+                        </div>
+                    </a>
+                    <a href="index.html">
+                        <img id="logoMenuLateral" src="assets/img/logoMenu.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- fim do menu lateral -->
+
+        <!-- inicio do cabeçalho -->
+        <div class="divPaiCabecalho">
+            <div class="filhoCabecalho">
+
+                <div class="esquerdaCabecalho">
+                    <input type="text" class="inputLogin" placeholder="Pesquisar"></input>
+                    <img src="assets/img/lupa.png" class="lupaBusca">
+                </div>
+
+                <div class="direitaCabecalho">
+                    <img class="emailIconCabecalho" src="assets/img/iconEmail.png">
+                    <img class="sinoIconCabecalho" src="assets/img/notificacaoIcon.png">
+                    <div class="divPerfilCabecalho">
+                        <img class="iconPerfilCabecalho" src="assets/img/fotoPerfil.png">
+                        <div class="textosIcon">
+                            <p id="tituloPerfil">Anthony Bento</p>
+                            <p id="cargoPerfil">CEO</p>
+                        </div>
+                        <img class="setaPerfilCabecalho" src="assets/img/setaIcon.png" onclick="exibirMenuPerfil()">
+                        <div id="menuPerfil" class="menuPerfil">
+                            <ul>
+                                <button class="btnSair">
+                                    <div class="sign"><svg viewBox="0 0 512 512">
+                                            <path
+                                                d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z">
+                                            </path>
+                                        </svg></div>
+
+                                    <div class="txtBtn" onclick="limparSessao()">Sair</div>
+                                </button>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- começo conteudo pagina -->
+            <div class="mainPai">
+                <div class="mainFilho">
+                    <div class="titulo">
+                        <span class="numSetor">Computador <span id="idComputador">1</span></span>
+                        <span class="nomeSetor" id="nomeSetor">Pediatria</span>
+                        <span class="numComputador">Setor <span id="idSala">1</span></span>
+                    </div>
+                    <div class="kpeis">
+                        <div class="cardPai">
+                            <div class="cardFilho">
+                                <div class="cardTexto">
+                                    <span class="txtUso">Total de janelas ativas</span>
+                                    <img src="assets/img/usb.png" alt="" class="imgCard">
+                                </div>
+                                <span class="infoCard" id="statusUsb">Inativo</span>
+                            </div>
+                        </div>
+
+                        <div class="cardPai">
+                            <div class="cardFilho">
+                                <div class="cardTexto">
+                                    <span class="txtUso">Total de janelas mensais</span>
+                                    <img src="assets/img/cpu.png" alt="" class="imgCard">
+                                </div>
+                                <span class="infoCard"><span id="usoCpuMensal">60</span> %</span>
+                            </div>
+                            
+                        </div>
+
+                        <div class="cardPai">
+                            <div class="cardFilho">
+                                <div class="cardTexto">
+                                    <span class="txtUso">Maior % do Uso mensal  de RAM</span>
+                                    <img src="assets/img/ram.png" alt="" class="imgCard">
+                                </div>
+                                <span class="infoCard"><span id="usoMensalRam"></span> %</span>
+                            </div>
+                           
+                        </div>
+
+                        <div class="cardPai">
+                            <div class="cardFilho">
+                                <div class="cardTexto">
+                                    <span class="txtUso">% do Uso do Ram</span>
+                                    <img src="assets/img/drive-de-disco-rigido.png" alt="" class="imgCard">
+                                </div>
+                                <span class="infoCard"><span id="usoRam"></span> %</span>
+                            </div>
+                          
+                        </div>
+                    </div>
+                    <div class="paiGrafico">
+                        <div class="GraficoRam">
+                            <div class="grafico">
+                                <canvas id="myChartRam" class="graficoTamanho"></canvas>
+                            </div>
+                        </div>
+    
+                        <div class="HistAvisos">
+    
+                        </div>
+                    </div>
+
+                    <div class="Histjanelas">
+                        <div class="entradaJanelas">
+                            <p>Janelas de Aplicativos</p>
+                            <div class="DivCampos">
+                                <div class="campo">
+                                    <p id="campoId">Id</p>
+                                    <p id="campoTitulo">Título</p>
+                                </div>
+                                <div id="dados">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                   
+                </div>
+            </div>
+            <!-- fim conteudo pagina -->
+        </div>
+        <!-- fim do cabeçalho -->
+    </div>
+</body>
+
+</html>
+
+<script>
+    var Empresa = sessionStorage.NOME_FANTASIA_COLABORADOR;
+    nomeEmpresa.innerHTML = Empresa;
+
+    window.onload = obterDadosGraficoRam();
+    window.onload = atualizarFeedJanela();
+    window.onload = atualizarFeedRam();
+    window.onload = atualizarFeedMensalRam();
+
+    function obterDadosGraficoRam(idMaquina) {
+        var idMaquina = sessionStorage.ID_MAQUINA
+
+        // if (proximaAtualizacao != undefined) {
+        //     clearTimeout(proximaAtualizacao);
+        // }
+
+        fetch(`/medidas/ultimasRam/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    plotarGraficoRam(resposta, idMaquina);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+    function plotarGraficoRam(resposta, idMaquina) {
+
+        console.log('iniciando plotagem do gráfico...');
+
+        // Criando estrutura para plotar gráfico - labels
+        let labels = [];
+
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Uso de RAM',
+                data: [],
+                fill: true,
+            // backgroundColor: `rgb(79,179,148)`,
+                borderColor: `rgb(17, 94, 210)`,
+                borderWidth: 5,
+                tension: 0.5,
+                pointBorderWidth: 0,
+                pointBackgroundColor: `rgb(17, 94, 210)`,
+                pointRadius: 1
+            }]
+        };
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log(resposta)
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.horario);
+            dados.datasets[0].data.push(registro.porcentagem);
+        }
+
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        console.log(labels)
+        console.log('Dados:')
+        console.log(dados.datasets)
+        console.log('----------------------------------------------')
+
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'line',
+            data: dados,
+        };
+
+        const ctx3 = document.getElementById(`myChartRam`).getContext('2d');
+        const gradient = ctx3.createLinearGradient(0, 0, 0, 250);
+        gradient.addColorStop(0, 'rgba(13, 20, 215, 1)');
+        gradient.addColorStop(1, 'rgba(8, 14, 50, 0.1');
+        dados.datasets[0].backgroundColor = gradient;
+
+        // Adicionando gráfico criado em div na tela
+        let myChart3 = new Chart(
+            document.getElementById(`myChartRam`),
+            config
+        );
+
+        setTimeout(() => atualizarGraficoRam(idMaquina, dados, myChart3), 2000);
+    }
+
+
+    // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
+    // buscando a última medida inserida em tabela contendo as capturas, 
+
+    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
+    //     Para ajustar o "select", ajuste o comando sql em src/models
+    function atualizarGraficoRam(idMaquina, dados, myChart3) {
+
+
+
+        fetch(`/medidas/tempo-realRam/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (novoRegistro) {
+
+                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+                    console.log(`Dados atuais do gráfico:`);
+                    console.log(dados);
+
+                    // let avisoCaptura = document.getElementById(`avisoCaptura${disco}`)
+                    // avisoCaptura.innerHTML = ""
+
+
+                    if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length]) {
+                        console.log("---------------------------------------------------------------")
+                        console.log("Como não há dados novos para captura, o gráfico não atualizará.")
+                        // avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
+                        console.log("Horário do novo dado capturado:")
+                        console.log(novoRegistro[0].porcentagem)
+                        console.log("Horário do último dado capturado:")
+                        console.log(dados.labels[dados.labels.length])
+                        console.log("---------------------------------------------------------------")
+                    } else {
+                        // tirando e colocando valores no gráfico
+                        dados.labels.shift(); // apagar o primeiro
+                        dados.labels.push(novoRegistro[0].horario); // incluir um novo momento
+
+                        dados.datasets[0].data.shift();  // apagar o primeiro de umidade
+                        dados.datasets[0].data.push(novoRegistro[0].porcentagem); // incluir uma nova medida de umidade
+
+                        // dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
+                        // dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
+
+                        myChart3.update();
+                    }
+
+                    // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+                    // proximaAtualizacao = setTimeout(() => atualizarGrafico(disco, dados, myChart), 2000);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+                // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+                // proximaAtualizacao = setTimeout(() => atualizarGrafico(disco, dados, myChart), 2000);
+            }
+        })
+            .catch(function
+                (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+    }
+// trazer janelas
+    function atualizarFeedJanela() {
+        var idMaquina = sessionStorage.ID_MAQUINA
+        fetch(`/avisos/listarJanela/${idMaquina}`).then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var feed = document.getElementById("feed_container");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(mensagem);
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var feed = document.getElementById("dados");
+                    
+                    for (let i = 0; i < resposta.length; i++) {
+                        var publicacao = resposta[i];
+                        feed.innerHTML += `<div class="Dados">
+                                <p id="campoId"> ${publicacao.idJanela}</p> <p id="campoTitulo">${publicacao.tituloJanela}</p> 
+                            </div>`
+                    }
+
+                    // finalizarAguardar();
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+            finalizarAguardar();
+        });
+    }
+
+// trazer ram
+    function atualizarFeedRam() {
+        var idMaquina = sessionStorage.ID_MAQUINA
+        fetch(`/avisos/listarRam/${idMaquina}`).then(function (resposta) {
+            console.log("entrei cria")
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var feed = document.getElementById("feed_container");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(mensagem);
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var feed = document.getElementById("usoRam");
+                    
+                    for (let i = 0; i < resposta.length; i++) {
+                        var publicacao = resposta[i];
+                        feed.innerHTML += `
+                                 ${publicacao.porcentagem}  
+                            `
+                    }
+
+                    // finalizarAguardar();
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+            // finalizarAguardar();
+        });
+    }
+
+    // atualizarFeedMensalRam
+
+    function atualizarFeedMensalRam() {
+        var idMaquina = sessionStorage.ID_MAQUINA
+        fetch(`/avisos/listarMensalRam/${idMaquina}`).then(function (resposta) {
+            console.log("entrei cria")
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var feed = document.getElementById("feed_container");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(mensagem);
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var feed = document.getElementById("usoMensalRam");
+                    
+                    for (let i = 0; i < resposta.length; i++) {
+                        var publicacao = resposta[i];
+                        feed.innerHTML += `
+                                 ${publicacao.porcentagem}  
+                            `
+                    }
+
+                    // finalizarAguardar();
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+            // finalizarAguardar();
+        });
+    }
+</script>

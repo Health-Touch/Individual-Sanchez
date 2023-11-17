@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.divPai {
+    background-image: url(../assets/img/bannerHospital.jpg);
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divFilho {
+    width: 82vw;
+    height: 97vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.divCima {
+    width: 80vw;
+    height: 16vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cimaEsquerda {
+    background-color: white;
+    width: 30vw;
+    height: 0.7vh;
+}
+
+#iconHospitalCima {
+    width: 8vw;
+    height: 17vh;
+}
+
+.cimaDireita {
+    background-color: white;
+    width: 30vw;
+    height: 0.7vh;
+}
+
+#pTitulo {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    position: relative;
+    top: 1%;
+}
+
+#pSubtitulo {
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+    position: relative;
+    top: 2%;
+}
+
+.divPaiBox1 {
+    width: 75vw;
+    height: 30vh;
+    position: relative;
+    top: 7%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.divPaiBox2 {
+    width: 75vw;
+    height: 30vh;
+    position: relative;
+    top: 10%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.box {
+    background-color: white;
+    width: 18vw;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#iconBox {
+    width: 7vw;
+    height: 13vh;
+    position: relative;
+    top: 5%;
+}
+
+#iconBox1 {
+    width: 7vw;
+    height: 13vh;
+    position: relative;
+    top: 5%;
+    left: 5%;
+}
+
+#iconBox3 {
+    width: 7vw;
+    height: 13vh;
+    position: relative;
+    top: 5%;
+    left: 5%;
+}
+
+#iconBox4 {
+    width: 7vw;
+    height: 13vh;
+    position: relative;
+    top: 5%;
+    left: 2%;
+}
+
+#iconBox5 {
+    width: 7vw;
+    height: 13vh;
+    position: relative;
+    top: 5%;
+    left: 3%;
+}
+
+#tituloBox {
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    top: 10%;
+}
+
+#btnBox {
+    border: none;
+    background-color: #38b0ac;
+    color: #fff;
+    padding: 5px;
+    border-radius: 15px;
+    width: 130px;
+    box-shadow: rgba(50, 50, 93, 0.1) 0px 8px 0px 0px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    position: relative;
+    top: 17%;
+    cursor: pointer;
+}
+
+#btnBox:hover {
+    transform: scale(1.05);
+}

@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/baseDash.css">
+    <link rel="stylesheet" href="css/analiseDetalhada.css">
+    <title>Análise Detalhada | Health Touch</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/funcoes.js"></script>
+    <link rel="shortcut icon" type="imagex/png" href="./assets/img/logo_icon.png" />
+</head>
+<style>
+    .setaPerfilCabecalho:hover {
+    cursor: pointer;
+}
+.menuPerfil ul {
+    padding: 0;
+}
+.btnSair {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    background-color: rgb(255, 65, 65);
+}
+.btnSair:hover {
+    width: 90px;
+    border-radius: 40px;
+    transition-duration: .3s;
+}
+.btnSair:hover .sign {
+    width: 45%;
+    transition-duration: .3s;
+}
+.btnSair:hover .txtBtn {
+    opacity: 1;
+    width: 70%;
+    transition-duration: .3s;
+}
+.sign {
+    width: 100%;
+    transition-duration: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sign svg {
+    width: 17px;
+}
+.sign svg path {
+    fill: white;
+}
+.txtBtn {
+    position: absolute;
+    right: 0%;
+    width: 0%;
+    opacity: 0;
+    color: white;
+    font-size: 1em;
+    font-weight: 600;
+    transition-duration: .3s;
+}
+</style>
+<body>
+
+    <div class="divPai">
+        <!-- inicio menu lateral -->
+        <div class="divPaiLateral">
+            <div class="filhoLateral">
+
+                <div class="divNomeEmpresa">
+
+                    <p id="textoEmpresa">Bem Vindo</p>
+                    <p id="nomeEmpresa">Bem Vindo <br><span> Nome da Empresa </span></p>
+                </div>
+
+                <div class="divMainMenu">
+                    <p id="pMainMenu">MAIN MENU</p>
+                </div>
+
+                <div class="divPaiOpcoesMenu">
+                    <a href="setores.html" id="pMenuLateral">
+                        <div class="divHome">
+                            <img id="iconMenuLateralHome" src="assets/img/grafico-de-setores.png">
+                            <div class="divEspaco"></div>
+                            Setores
+                        </div>
+                    </a>
+
+                    <a href="cadastroMaquinas.html" id="pMenuLateral">
+                        <div class="divComputador">
+                            <img id="iconComputadorLateral" src="assets/img/computador (4).png">
+                            <div class="divEspaco"></div>
+                            Cadastro Máquinas
+                        </div>
+                    </a>
+
+                    <a href="analiseMaquinaTI.html" id="pMenuLateral">
+                        <div class="divCadastroComputador">
+                            <img id="iconComputadorCadLateral" src="assets/img/definicoes.png">
+                            <div class="divEspaco"></div>
+                            Análise Máquinas
+                        </div>
+                    </a>
+
+                    <a href="cadastroFuncionarios.html" id="pMenuLateral">
+                        <div class="divAnaliseEquipe">
+                            <img id="iconAnaliseEquipe" src="assets/img/carteira-de-identidade.png">
+                            <div class="divEspaco"></div>
+                            Cadastro Equipe
+                        </div>
+                    </a>
+
+                    <a href="analiseFuncionario.html" id="pMenuLateral">
+                        <div class="divDashboards">
+                            <img id="iconDashboardsLateral" src="assets/img/equipe.png">
+                            <div class="divEspaco"></div>
+                            Análise Funcionários
+                        </div>
+                    </a>
+
+                    <a href="" id="pMenuLateral">
+                        <div class="divCadastroEquipe">
+                            <img id="iconCadastroEquipe" src="assets/img/mais (2).png">
+                            <div class="divEspaco"></div>
+                            Dashboards
+                        </div>
+                    </a>
+                </div>
+
+                <div class="divEspacoV2"></div>
+
+                <div class="divHelp">
+                    <p id="pHelp">HELP</p>
+                </div>
+
+                <div class="divPaiHelpMenu">
+                    <a href="SuporteHealthTooch.html" id="pMenuLateral">
+                        <div class="divHelpDesk">
+                            <img id="iconHelpDesk" src="assets/img/suporte-ao-cliente.png">
+                            <div class="divEspaco"></div>
+                            HelpDesk
+                        </div>
+                    </a>
+                    <a href="AtualizarUser.html" id="pMenuLateral">
+                        <div class="divConfiguracoes">
+                            <img id="iconConfiguracoes" src="assets/img/botao-de-roda-dentada-de-configuracoes.png">
+                            <div class="divEspaco"></div>
+                            Configurações
+                        </div>
+                    </a>
+                    <a href="index.html">
+                        <img id="logoMenuLateral" src="assets/img/logoMenu.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- fim do menu lateral -->
+
+        <!-- inicio do cabeçalho -->
+        <div class="divPaiCabecalho">
+            <div class="filhoCabecalho">
+
+                <div class="esquerdaCabecalho">
+                    <input type="text" class="inputLogin" placeholder="Pesquisar"></input>
+                    <img src="assets/img/lupa.png" class="lupaBusca">
+                </div>
+
+                <div class="direitaCabecalho">
+                    <img class="emailIconCabecalho" src="assets/img/iconEmail.png">
+                    <img class="sinoIconCabecalho" src="assets/img/notificacaoIcon.png">
+                    <div class="divPerfilCabecalho">
+                        <img class="iconPerfilCabecalho" src="assets/img/fotoPerfil.png">
+                        <div class="textosIcon">
+                            <p id="tituloPerfil">Anthony Bento</p>
+                            <p id="cargoPerfil">CEO</p>
+                        </div>
+                        <img class="setaPerfilCabecalho" src="assets/img/setaIcon.png" onclick="exibirMenuPerfil()" >
+                        <div id="menuPerfil" class="menuPerfil" style="display: none; position: absolute; z-index: 1; top: 58px;">
+                            <ul>
+                                <button class="btnSair">
+                                    <div class="sign"><svg viewBox="0 0 512 512">
+                                            <path
+                                                d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z">
+                                            </path>
+                                        </svg></div>
+
+                                    <div class="txtBtn" onclick="limparSessao()">Sair</div>
+                                </button>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- fim do cabeçalho -->
+
+            <!-- começo conteudo pagina -->
+            <div class="divPaiConteudo">
+                <div class="divFilhoAnalise">
+                    <div class="divTituloAnalise">
+                        <b>Análise Detalhada</b>
+                    </div>
+                    <div class="divSubtitulo">
+                        <div class="dadosSetor"> <p><b>Computador <span id="idMaquinaNum"></span></b> <span id=setor class="setor"></span></p></div>
+                       
+                        <button class="botaoTrocar" onclick="trocar()">Trocar</button> <button onclick="tela()"class="botaoHist">Histórico</button>
+                    </div>
+                </div>
+
+                <div class="divDashs">
+
+
+                    <div class="dash">
+                        <div class="grafico">
+                            <canvas id="myChartCpu" class="grafico"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="dash">
+                        <div class="grafico">
+                            <canvas id="myChartRam" class="grafico"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                    <div class="divDashs2">
+                    <div class="dash2">
+                        <div class="grafico2">
+                            <canvas id="myChartDisco" class="grafico2"></canvas>
+                        </div>
+
+                    </div>
+
+                <div class="divPaiUsb">
+                    <div class="entradasUsb">
+                        <p>Entradas USB</p>
+                        <div class="DivCampos">
+                            <div class="campo">
+                                <p id="campoId">Id</p>
+                                <p id="campoNome">Nome</p>
+                                <p id="campoStatus">Status</p>
+                                <p id="campoDt">Data & Hora</p>
+                            </div>
+                            <div id="dados">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            </div>
+            <!-- fim conteudo pagina -->
+
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    
+    idMaquinaNum.innerHTML = sessionStorage.ID_MAQUINA
+    Chart.defaults.color = '#FFFF';
+    
+
+    //   Chart.defaults.backgroundColor = 'rgb(254, 91, 153)';
+    window.onload = obterDadosGrafico();
+    window.onload = obterDadosGraficoCpu();
+    window.onload = obterDadosGraficoRam();
+    window.onload = atualizarFeedUsb();
+    window.onload = atualizarFeedSetor();
+    function obterDadosGrafico(idMaquina) {
+        var idMaquina = sessionStorage.ID_MAQUINA
+        // if (proximaAtualizacao != undefined) {
+        //     clearTimeout(proximaAtualizacao);
+        // }
+
+        fetch(`/medidas/ultimasDisco/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    plotarGrafico(resposta, idMaquina);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+    function plotarGrafico(resposta, idMaquina) {
+
+        console.log('iniciando plotagem do gráfico...');
+
+        // Criando estrutura para plotar gráfico - labels
+        // rgb(254, 91, 153)
+        let labels = [];
+
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Uso de DISCO',
+                data: [],
+                fill: true,
+                // backgroundColor: `rgb(79,179,148)`,
+                borderColor: `rgb(188,219,215)`,
+                borderWidth: 5,
+                tension: 0.5,
+                pointBorderWidth: 0,
+                pointBackgroundColor: `rgb(188,219,215)`,
+                pointRadius: 1
+            }]
+        };
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log(resposta)
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.horario);
+            dados.datasets[0].data.push(registro.porcentagem);
+        }
+
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        console.log(labels)
+        console.log('Dados:')
+        console.log(dados.datasets)
+        console.log('----------------------------------------------')
+
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'line',
+            data: dados,
+        };
+
+        const ctx = document.getElementById(`myChartDisco`).getContext('2d');
+        const gradient = ctx.createLinearGradient(0, 0, 0, 250);
+        gradient.addColorStop(0, 'rgba(79, 179, 148, 1)');
+        gradient.addColorStop(1, 'rgba(5, 19, 34, 0.1');
+        dados.datasets[0].backgroundColor = gradient;
+
+        // Adicionando gráfico criado em div na tela
+        let myChart = new Chart(
+            document.getElementById(`myChartDisco`),
+            config
+        );
+
+        setTimeout(() => atualizarGrafico(idMaquina, dados, myChart), 2000);
+    }
+
+
+    // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
+    // buscando a última medida inserida em tabela contendo as capturas, 
+
+    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
+    //     Para ajustar o "select", ajuste o comando sql em src/models
+    function atualizarGrafico(idMaquina, dados, myChart) {
+
+
+
+        fetch(`/medidas/tempo-realDisco/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (novoRegistro) {
+
+                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+                    console.log(`Dados atuais do gráfico:`);
+                    console.log(dados);
+
+                    // let avisoCaptura = document.getElementById(`avisoCaptura${disco}`)
+                    // avisoCaptura.innerHTML = ""
+
+
+                    if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length]) {
+                        console.log("---------------------------------------------------------------")
+                        console.log("Como não há dados novos para captura, o gráfico não atualizará.")
+                        // avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
+                        console.log("Horário do novo dado capturado:")
+                        console.log(novoRegistro[0].porcentagem)
+                        console.log("Horário do último dado capturado:")
+                        console.log(dados.labels[dados.labels.length])
+                        console.log("---------------------------------------------------------------")
+                    } else {
+                        // tirando e colocando valores no gráfico
+                        dados.labels.shift(); // apagar o primeiro
+                        dados.labels.push(novoRegistro[0].horario); // incluir um novo momento
+
+                        dados.datasets[0].data.shift();  // apagar o primeiro de umidade
+                        dados.datasets[0].data.push(novoRegistro[0].porcentagem); // incluir uma nova medida de umidade
+
+                        // dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
+                        // dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
+
+                        myChart.update();
+                    }
+
+                    // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+                    // proximaAtualizacao = setTimeout(() => atualizarGrafico(disco, dados, myChart), 2000);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+                // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+                // proximaAtualizacao = setTimeout(() => atualizarGrafico(disco, dados, myChart), 2000);
+            }
+        })
+            .catch(function
+                (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+    }
+
+
+    // cpu
+    function obterDadosGraficoCpu(idMaquina) {
+        var idMaquina = sessionStorage.ID_MAQUINA
+        // if (proximaAtualizacao != undefined) {
+        //     clearTimeout(proximaAtualizacao);
+        // }
+
+        fetch(`/medidas/ultimasCpu/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    plotarGraficoCpu(resposta, idMaquina);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+    function plotarGraficoCpu(resposta, idMaquina) {
+
+        console.log('iniciando plotagem do gráfico...');
+
+        // Criando estrutura para plotar gráfico - labels
+        let labels = [];
+
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Uso de CPU',
+                data: [],
+                fill: true,
+                // backgroundColor: `rgb(79,179,148)`,
+                borderColor: `rgb(206, 169, 223)`,
+                borderWidth: 5,
+                tension: 0.5,
+                pointBorderWidth: 0,
+                pointBackgroundColor: `rgb(206, 169, 223)`,
+                pointRadius: 1
+            }]
+        };
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log(resposta)
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.horario);
+            dados.datasets[0].data.push(registro.porcentagem);
+        }
+
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        console.log(labels)
+        console.log('Dados:')
+        console.log(dados.datasets)
+        console.log('----------------------------------------------')
+
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'line',
+            data: dados,
+        };
+
+        const ctx2 = document.getElementById(`myChartCpu`).getContext('2d');
+        const gradient = ctx2.createLinearGradient(0, 0, 0, 300);
+        gradient.addColorStop(0, 'rgba(125, 9, 206, 1)');
+        gradient.addColorStop(1, 'rgba(5, 16, 38, 0.1');
+        dados.datasets[0].backgroundColor = gradient;
+
+        // Adicionando gráfico criado em div na tela
+        let myChart2 = new Chart(
+            document.getElementById(`myChartCpu`),
+            config
+        );
+
+        setTimeout(() => atualizarGraficoCpu( dados, myChart2, idMaquina), 2000);
+    }
+
+
+    // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
+    // buscando a última medida inserida em tabela contendo as capturas, 
+
+    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
+    //     Para ajustar o "select", ajuste o comando sql em src/models
+    function atualizarGraficoCpu(dados, myChart2, idMaquina) {
+
+
+
+        fetch(`/medidas/tempo-realCpu/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (novoRegistro) {
+
+                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+                    console.log(`Dados atuais do gráfico:`);
+                    console.log(dados);
+
+                    // let avisoCaptura = document.getElementById(`avisoCaptura${disco}`)
+                    // avisoCaptura.innerHTML = ""
+
+
+                    if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length]) {
+                        console.log("---------------------------------------------------------------")
+                        console.log("Como não há dados novos para captura, o gráfico não atualizará.")
+                        // avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
+                        console.log("Horário do novo dado capturado:")
+                        console.log(novoRegistro[0].porcentagem)
+                        console.log("Horário do último dado capturado:")
+                        console.log(dados.labels[dados.labels.length])
+                        console.log("---------------------------------------------------------------")
+                    } else {
+                        // tirando e colocando valores no gráfico
+                        dados.labels.shift(); // apagar o primeiro
+                        dados.labels.push(novoRegistro[0].horario); // incluir um novo momento
+
+                        dados.datasets[0].data.shift();  // apagar o primeiro de umidade
+                        dados.datasets[0].data.push(novoRegistro[0].porcentagem); // incluir uma nova medida de umidade
+
+                        // dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
+                        // dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
+
+                        myChart2.update();
+                    }
+
+                    // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+                    // proximaAtualizacao = setTimeout(() => atualizarGrafico(disco, dados, myChart), 2000);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+                // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+                // proximaAtualizacao = setTimeout(() => atualizarGrafico(disco, dados, myChart), 2000);
+            }
+        })
+            .catch(function
+                (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+    }
+
+    // RAM
+    function obterDadosGraficoRam(idMaquina) {
+        var idMaquina = sessionStorage.ID_MAQUINA
+
+        // if (proximaAtualizacao != undefined) {
+        //     clearTimeout(proximaAtualizacao);
+        // }
+
+        fetch(`/medidas/ultimasRam/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    plotarGraficoRam(resposta, idMaquina);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+    function plotarGraficoRam(resposta, idMaquina) {
+
+        console.log('iniciando plotagem do gráfico...');
+
+        // Criando estrutura para plotar gráfico - labels
+        let labels = [];
+
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Uso de RAM',
+                data: [],
+                fill: true,
+            // backgroundColor: `rgb(79,179,148)`,
+                borderColor: `rgb(17, 94, 210)`,
+                borderWidth: 5,
+                tension: 0.5,
+                pointBorderWidth: 0,
+                pointBackgroundColor: `rgb(17, 94, 210)`,
+                pointRadius: 1
+            }]
+        };
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log(resposta)
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.horario);
+            dados.datasets[0].data.push(registro.porcentagem);
+        }
+
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        console.log(labels)
+        console.log('Dados:')
+        console.log(dados.datasets)
+        console.log('----------------------------------------------')
+
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'line',
+            data: dados,
+        };
+
+        const ctx3 = document.getElementById(`myChartRam`).getContext('2d');
+        const gradient = ctx3.createLinearGradient(0, 0, 0, 250);
+        gradient.addColorStop(0, 'rgba(13, 20, 215, 1)');
+        gradient.addColorStop(1, 'rgba(8, 14, 50, 0.1');
+        dados.datasets[0].backgroundColor = gradient;
+
+        // Adicionando gráfico criado em div na tela
+        let myChart3 = new Chart(
+            document.getElementById(`myChartRam`),
+            config
+        );
+
+        setTimeout(() => atualizarGraficoRam(idMaquina, dados, myChart3), 2000);
+    }
+
+
+    // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
+    // buscando a última medida inserida em tabela contendo as capturas, 
+
+    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
+    //     Para ajustar o "select", ajuste o comando sql em src/models
+    function atualizarGraficoRam(idMaquina, dados, myChart3) {
+
+
+
+        fetch(`/medidas/tempo-realRam/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (novoRegistro) {
+
+                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+                    console.log(`Dados atuais do gráfico:`);
+                    console.log(dados);
+
+                    // let avisoCaptura = document.getElementById(`avisoCaptura${disco}`)
+                    // avisoCaptura.innerHTML = ""
+
+
+                    if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length]) {
+                        console.log("---------------------------------------------------------------")
+                        console.log("Como não há dados novos para captura, o gráfico não atualizará.")
+                        // avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
+                        console.log("Horário do novo dado capturado:")
+                        console.log(novoRegistro[0].porcentagem)
+                        console.log("Horário do último dado capturado:")
+                        console.log(dados.labels[dados.labels.length])
+                        console.log("---------------------------------------------------------------")
+                    } else {
+                        // tirando e colocando valores no gráfico
+                        dados.labels.shift(); // apagar o primeiro
+                        dados.labels.push(novoRegistro[0].horario); // incluir um novo momento
+
+                        dados.datasets[0].data.shift();  // apagar o primeiro de umidade
+                        dados.datasets[0].data.push(novoRegistro[0].porcentagem); // incluir uma nova medida de umidade
+
+                        // dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
+                        // dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
+
+                        myChart3.update();
+                    }
+
+                    // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+                    // proximaAtualizacao = setTimeout(() => atualizarGrafico(disco, dados, myChart), 2000);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+                // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+                // proximaAtualizacao = setTimeout(() => atualizarGrafico(disco, dados, myChart), 2000);
+            }
+        })
+            .catch(function
+                (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+    }
+    // trazer usb
+    function atualizarFeedUsb() {
+        var idMaquina = sessionStorage.ID_MAQUINA
+        fetch(`/avisos/listarUsb/${idMaquina}`).then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var feed = document.getElementById("feed_container");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(mensagem);
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var feed = document.getElementById("dados");
+                    
+                    for (let i = 0; i < resposta.length; i++) {
+                        var publicacao = resposta[i];
+                        feed.innerHTML += `<div class="Dados">
+                                <p id="campoId"> ${publicacao.idUSB}</p> <p id="campoNome">${publicacao.nomeUsb}</p>  <p id="campoStatus">Desconectado</p>  <p id="campoDt">${publicacao.dtHoraInsercao}</p>
+                            </div>`
+                            
+
+
+                        // criando e manipulando elementos do HTML via JavaScript
+                        // var divPublicacao = document.createElement("div");
+                        // var spanID = document.createElement("span");
+                        // var spanTitulo = document.createElement("span");
+                        // var spanNome = document.createElement("span");
+                        // var divDescricao = document.createElement("div");
+                        // var divButtons = document.createElement("div");
+                        // var btnEditar = document.createElement("button");
+                        // var btnDeletar = document.createElement("button");
+
+
+                        // spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
+                        // spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
+                        // spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
+                        // divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
+                        // btnEditar.innerHTML = "Editar";
+                        // btnDeletar.innerHTML = "Deletar";
+
+                        // divPublicacao.className = "publicacao";
+                        // spanTitulo.id = "inputNumero" + publicacao.idAviso;
+                        // spanNome.className = "publicacao-nome";
+                        // spanTitulo.className = "publicacao-titulo";
+                        // divDescricao.className = "publicacao-descricao";
+
+                        // divButtons.className = "div-buttons"
+
+                        // btnEditar.className = "publicacao-btn-editar"
+                        // btnEditar.id = "btnEditar" + publicacao.idAviso;
+                        // btnEditar.setAttribute("onclick", `editar(${publicacao.idAviso})`);
+
+                        // btnDeletar.className = "publicacao-btn-editar"
+                        // btnDeletar.id = "btnDeletar" + publicacao.idAviso;
+                        // btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
+
+                        // divPublicacao.appendChild(spanID);
+                        // divPublicacao.appendChild(spanNome);
+                        // divPublicacao.appendChild(spanTitulo);
+                        // divPublicacao.appendChild(divDescricao);
+                        // divPublicacao.appendChild(divButtons);
+                        // divButtons.appendChild(btnEditar);
+                        // divButtons.appendChild(btnDeletar);
+                        // feed.appendChild(divPublicacao);
+                    }
+
+                    finalizarAguardar();
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+            finalizarAguardar();
+        });
+    }
+
+    function atualizarFeedSetor() {
+        var idMaquina = sessionStorage.ID_MAQUINA
+        fetch(`/avisos/listarSetor/${idMaquina}`).then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    // var feed = document.getElementById("feed_container");
+                    // var mensagem = document.createElement("span");
+                    // mensagem.innerHTML = "Nenhum resultado encontrado."
+                    // feed.appendChild(mensagem);
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var feed = document.getElementById("setor");
+                    
+                    for (let i = 0; i < resposta.length; i++) {
+                        var publicacao = resposta[i];
+                        feed.innerHTML = `
+                        <span>${publicacao.nome}</span> <span>Setor ${publicacao.idSetor}</span>
+                        `
+                            
+
+
+                        // criando e manipulando elementos do HTML via JavaScript
+                        // var divPublicacao = document.createElement("div");
+                        // var spanID = document.createElement("span");
+                        // var spanTitulo = document.createElement("span");
+                        // var spanNome = document.createElement("span");
+                        // var divDescricao = document.createElement("div");
+                        // var divButtons = document.createElement("div");
+                        // var btnEditar = document.createElement("button");
+                        // var btnDeletar = document.createElement("button");
+
+
+                        // spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
+                        // spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
+                        // spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
+                        // divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
+                        // btnEditar.innerHTML = "Editar";
+                        // btnDeletar.innerHTML = "Deletar";
+
+                        // divPublicacao.className = "publicacao";
+                        // spanTitulo.id = "inputNumero" + publicacao.idAviso;
+                        // spanNome.className = "publicacao-nome";
+                        // spanTitulo.className = "publicacao-titulo";
+                        // divDescricao.className = "publicacao-descricao";
+
+                        // divButtons.className = "div-buttons"
+
+                        // btnEditar.className = "publicacao-btn-editar"
+                        // btnEditar.id = "btnEditar" + publicacao.idAviso;
+                        // btnEditar.setAttribute("onclick", `editar(${publicacao.idAviso})`);
+
+                        // btnDeletar.className = "publicacao-btn-editar"
+                        // btnDeletar.id = "btnDeletar" + publicacao.idAviso;
+                        // btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
+
+                        // divPublicacao.appendChild(spanID);
+                        // divPublicacao.appendChild(spanNome);
+                        // divPublicacao.appendChild(spanTitulo);
+                        // divPublicacao.appendChild(divDescricao);
+                        // divPublicacao.appendChild(divButtons);
+                        // divButtons.appendChild(btnEditar);
+                        // divButtons.appendChild(btnDeletar);
+                        // feed.appendChild(divPublicacao);
+                    }
+
+                    finalizarAguardar();
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+            finalizarAguardar();
+        });
+    }
+
+    function trocar(){
+        window.location="setores.html"
+    }
+    function tela(){
+        window.location="telaSanchez.html"
+    }
+
+    var nome = sessionStorage.NOME_COLABORADOR;
+    tituloPerfil.innerHTML = nome;
+
+    var cargo = sessionStorage.NIVELACESSO_COLABORADOR;
+    if (cargo == "RL") {
+        cargo = "Representante"
+    }else if (cargo == "GT"){
+        cargo = "Gerente TI"
+    }
+
+
+
+    var Empresa = sessionStorage.NOME_FANTASIA_COLABORADOR;
+    nomeEmpresa.innerHTML = Empresa;
+
+function exibirMenuPerfil() {
+  var menu = document.getElementById('menuPerfil')
+  if (menu.style.display === 'block') {
+    menu.style.display = 'none'
+  } else {
+    menu.style.display = 'block'
+  }
+}
+
+</script>

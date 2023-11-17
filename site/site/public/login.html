@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="./css/login.css" />
+  <link rel="stylesheet" href="css/indexV2.css" />
+  <script src="./js/funcoes.js"></script>
+  <script src="./js/login.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <link rel="shortcut icon" type="imagex/png" href="./assets/img/logo_icon.png" />
+
+  <title>Login | Health Touch</title>
+</head>
+
+<body>
+  <!-- começo do cabeçalho -->
+  <div class="paiCabecalho">
+    <div class="filhoCabecalho">
+      <div class="esquerdaCabecalho">
+        <img src="./assets/img/logo_navbar.png" id="imgEsquerdaCabecalho" onclick="home()" />
+      </div>
+
+      <div class="direitaCabecalho">
+
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- fim do cabeçalho -->
+
+  <div class="pageLogin">
+    <div class="wrapper active-popup">
+      <span class="icon-close">
+        <ion-icon name="close"></ion-icon>
+      </span>
+      <div class="form-box login">
+        <h2>Login</h2>
+        <!-- <form action="#"> -->
+        <div class="input-box">
+          <span class="icon">
+            <ion-icon name="mail"></ion-icon>
+          </span>
+          <input type="email" id="input_email" />
+          <label>Email</label>
+        </div>
+        <div class="input-box">
+          <span class="icon">
+            <ion-icon name="lock-closed"></ion-icon>
+          </span>
+          <input type="password" id="input_senha" />
+          <label>Senha</label>
+        </div>
+        <div class="remember-forgot">
+          <label><input type="checkbox" />Lembre de mim</label>
+          <p id="alertTextSenha" onclick="esqueceuSenha()"><a class="register-link">Esqueci Minha Senha</a></p>
+        </div>
+        <button onclick="entrar(),buscarSetor(),buscarMaquinas()" class="btn">Login</button>
+        <div class="login-register">
+          <p>
+          <p id="alertText" onclick="criarConta()">Não tem uma conta? <a class="register-link">Cadastre-se</a></p>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

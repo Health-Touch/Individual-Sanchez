@@ -1,0 +1,318 @@
+* {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.divPai {
+    display: flex;
+}
+
+/* começo da cabeçalho */
+.divPaiCabecalho {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(218, 218, 218);
+    align-items: center;
+}   
+
+.filhoCabecalho {
+    width: 90vw;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    background-color: white;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    position: relative;
+    top: -4%;
+}
+
+.direitaCabecalho {
+    width: 22vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.divPerfilCabecalho {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 14vw;
+    height: 7vh;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.textosIcon {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#tituloPerfil {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#cargoPerfil {
+    font-size: 12px;
+}
+
+.iconPerfilCabecalho {
+    width: 3vw;
+    height: 6vh;
+}
+
+.setaPerfilCabecalho {
+    width: 1vw;
+    height: 2vh;
+}
+
+.emailIconCabecalho {
+    width: 1.5vw;
+    height: 3vh;
+}
+
+.sinoIconCabecalho {
+    width: 1.5vw;
+    height: 3vh;
+}
+
+.esquerdaCabecalho {
+    width: 20vw;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.inputLogin {
+    border-radius: 15px;
+    border: none;
+    height: 5vh;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    outline: none;
+    display: flex;
+    margin: 20px;
+}
+
+.inputLogin::placeholder {
+    font-size: 11px;
+    position: relative;
+    top: -5%;
+    left: 5%;
+}
+
+.lupaBusca {
+    width: 25px;
+    height: 25px;
+    position: relative;
+    right: 20%;
+}
+/* fim do cabeçalho */
+
+/* começo do conteudo */
+.divPaiConteudo {
+    width: 95%;
+    height: 80%;
+    background-color: white;
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    position: relative;
+    top: -5%;
+}
+
+span {
+    font-size: 40px;
+    position: relative;
+    top: 2%;
+    left: 5%;
+}
+
+#tituloFuncionario {
+    font-size: 28px;
+    position: relative;
+    top: 5%;
+    left: 13%;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction:row;
+}
+
+.divPaiInformacao{
+    position: relative;
+    top: -8%;
+}
+
+.divPaiInformacao img{
+    height:20px;
+    width:20px;
+}
+
+.divColuna{
+    display:flex;
+    align-items: center;
+    position:relative;
+    top: 90px;
+    width: 70vw;
+    height: 5vh;
+    color: rgb(155, 155, 155);
+    background-color: rgb(255, 255, 255);
+}
+
+#idTeste {
+    position: relative;
+    left: 11.8%;
+    z-index: 1;
+    font-size: 12px;
+}
+
+#idTeste2 {
+    font-size: 15px;
+    position: relative;
+    left: 20.5%;
+    font-size: 12px;
+}
+
+#idTeste3 {
+    position: relative;
+    left: 34%;
+    z-index:3;
+    font-size: 12px;
+}
+#idTeste4 {
+    position: relative;
+    left: 51.3%;
+    font-size: 12px;
+}
+
+#idTeste5{
+    font-size: 12px;
+    position: relative;
+    left: 59%;
+}
+
+.divConteudo {
+    display:flex;
+    flex-direction: column;
+    position: relative;
+    top: 50px;
+    right:1%;
+    width:98%;
+    margin:4%;
+    height: 50%;
+}
+
+.divConteudoScroll {
+    height:90%;
+    width: 95%;
+    max-height:57vh;
+    overflow-y:scroll;
+}
+
+.divConteudo li {
+    list-style: none;
+}
+.divfilhoConteudo{
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    display:flex;
+    flex-direction:row;
+    width: 90%;
+    height: 20px;
+    border-radius: 35px;
+    padding: 15px 30px;
+    margin:20px;
+    position: relative;
+    top: -17px;
+}
+#liNumero{
+    position:relative;
+    z-index:99;
+    left: 5%;
+}
+#liSistema{
+    position:relative;
+    z-index:98;
+    left: 15%;
+    width:80px;
+    text-align:center;
+}
+
+#liSetor{
+    width: 120px;
+    position:relative;
+    z-index:97;
+    left: 25%;
+    text-align:center;
+}
+
+
+
+#liUpdate{
+    position:relative;
+    z-index:95;
+    left: 45%;
+    border-radius: 30px;
+    width: 8%;
+    height:110%;
+    background-color:#020F1F;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    padding:2px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+#liDelete{
+    position:relative;
+    z-index:94;
+    left: 50%;
+    border-radius: 30px;
+    width: 8%;
+    height:110%;
+    background-color:#020F1F;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    padding:2px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    cursor: pointer;
+    font-size: 13px;
+}
+#li3Pontos{
+    position:relative;
+    z-index:94;
+    left: 53%;
+    bottom: 40%;
+    font-size: 130%
+}
+
+.active{
+    font-size: 13px;
+    border-radius:20px;
+    width:70px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    position:relative;
+    z-index:97;
+    left: 35%;
+    display: flex;
+    align-items: center;
+}
+
+/* fim do conteudo */

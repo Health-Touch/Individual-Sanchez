@@ -1,0 +1,720 @@
+* {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.divPai {
+    display: flex;
+}
+
+/* começo do menu lateral*/
+.divPaiLateral {
+    background-color: #020F1F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 13vw;
+    height: 100vh;
+}
+
+.filhoLateral {
+    width: 10vw;
+    height: 96vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.divNomeEmpresa {
+    width: 9vw;
+    height: 5vh;
+    position: relative;
+    top: 2%;
+}
+
+#textoEmpresa {
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+#nomeEmpresa {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.divMainMenu {
+    width: 9vw;
+    height: 5vh;
+    position: relative;
+    top: 7%;
+}
+
+#pMainMenu {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.divPaiOpcoesMenu {
+    width: 100%;
+    height: 40vh;
+    position: relative;
+    top: 8%;
+}
+
+.divPaiOpcoesMenu a {
+    text-decoration: none;
+}
+
+
+.divHome {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 6.7vw;
+}
+
+#iconMenuLateralHome {
+    width: 2vw;
+    height: 4vh;
+}
+
+#pMenuLateral {
+    color: white;
+    font-size: 11px;
+    text-decoration: none;
+}
+
+.divEstatisticas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 8vw;
+    position: relative;
+    top: 5%;
+}
+
+#iconEstatiscasLateral {
+    width: 1.8vw;
+    height: 3.8vh;
+}
+
+.divEspaco {
+    width: 5vw;
+    height: 5vh;
+}
+
+.divDashboards {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 8.5vw;
+    position: relative;
+    top: 18%;
+}
+
+#iconDashboardsLateral {
+    width: 1.8vw;
+    height: 3.8vh;
+}
+
+.divComputador {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 7.5vw;
+    position: relative;
+    top: 3%;
+}
+
+#iconComputadorLateral {
+    width: 2vw;
+    height: 4.2vh;
+}
+
+.divCadastroComputador {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 7.5vw;
+    position: relative;
+    top: 8%;
+}
+
+#iconComputadorCadLateral {
+    width: 3vw;
+    height: 4vh;
+}
+
+.divAnaliseEquipe {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 7.2vw;
+    position: relative;
+    top: 13%;
+}
+
+#iconAnaliseEquipe {
+    width: 2vw;
+    height: 4vh;
+}
+
+.divCadastroEquipe {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 8.2vw;
+    position: relative;
+    top: 23%;
+}
+
+#iconCadastroEquipe {
+    width: 2vw;
+    height: 3.5vh;
+}
+
+.divHelp {
+    width: 9vw;
+    height: 5vh;
+    position: relative;
+    top: 20%;
+}
+
+.divPaiHelpMenu {
+    width: 9vw;
+    height: 5vh;
+    position: relative;
+    top: 20%;
+}
+
+#pHelp {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.divHelpDesk {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 7vw;
+    position: relative;
+    top: 5%;
+}
+
+#iconHelpDesk {
+    width: 2vw;
+    height: 4vh;
+}
+
+.divConfiguracoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 8.8vw;
+    position: relative;
+    top: 35%;
+}
+
+#iconConfiguracoes {
+    width: 2vw;
+    height: 4vh;
+}
+
+#logoMenuLateral {
+    width: 7vw;
+    height: 8vh;
+    position: relative;
+    top: 70%;
+}
+
+.divEspacoV2 {
+    background-color: rgba(255, 255, 255, 0.409);
+    width: 9vw;
+    height: 0.1vh;
+    position: relative;
+    top: 17%;
+
+}
+
+/* fim do menu lateral */
+
+/* começo da cabeçalho */
+.divPaiCabecalho {
+    width: 100vw;
+    /* height: 10vh; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+}   
+
+.filhoCabecalho {
+    width: 80vw;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.direitaCabecalho {
+    width: 22vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.divPerfilCabecalho {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 14vw;
+    height: 7vh;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.textosIcon {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#tituloPerfil {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#cargoPerfil {
+    font-size: 12px;
+}
+
+.iconPerfilCabecalho {
+    width: 3vw;
+    height: 6vh;
+    border-radius: 50px;
+}
+
+.setaPerfilCabecalho {
+    width: 1vw;
+    height: 2vh;
+}
+
+.setaPerfilCabecalho:hover{
+    cursor: pointer;
+}
+
+.menuPerfil{
+    display: none;
+    position: absolute;
+    z-index: 1;
+    top: 58px;
+}
+
+.menuPerfil ul{ 
+    padding: 0;
+}
+
+.menuPerfil li{
+    padding: 8px 15px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+}
+
+.menuPerfil li:hover{
+    background-color: #f1f1f1;
+}
+
+.btnSair {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    background-color: rgb(255, 65, 65);
+  }
+  
+  .sign {
+    width: 100%;
+    transition-duration: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sign svg {
+    width: 17px;
+  }
+  
+  .sign svg path {
+    fill: white;
+  }
+
+  .txtBtn {
+    position: absolute;
+    right: 0%;
+    width: 0%;
+    opacity: 0;
+    color: white;
+    font-size: 1em;
+    font-weight: 600;
+    transition-duration: .3s;
+  }
+
+  .btnSair:hover {
+    width: 90px;
+    border-radius: 40px;
+    transition-duration: .3s;
+  }
+  
+  .btnSair:hover .sign {
+    width: 45%;
+    transition-duration: .3s;
+  }
+
+  .btnSair:hover .txtBtn {
+    opacity: 1;
+    width: 70%;
+    transition-duration: .3s;
+  }
+
+  .btnSair:active {
+    transform: translate(2px ,2px);
+  }
+
+.emailIconCabecalho {
+    width: 1.5vw;
+    height: 3vh;
+}
+
+.emailIconCabecalho:hover{
+    cursor: pointer;
+    animation: msg 0.9s ease-in-out 0s;
+}
+
+@keyframes msg{
+    0%,100% {
+        transform:  translate(0,0);
+    }
+    25% {
+        transform:  translate(0,-2.4px) rotate(5deg);
+    }
+    50% {
+        transform:  translate(0,-2.5px);
+    }
+    75% {
+        transform:  translate(0,-2.6px) rotate(-5deg);
+    }
+}
+
+
+
+.sinoIconCabecalho {
+    width: 1.5vw;
+    height: 
+    3vh;
+}
+
+.sinoIconCabecalho:hover{
+    cursor: pointer;
+    animation: bellRing 0.9s both;
+}
+
+@keyframes bellRing {
+    0%,
+    100% {
+      transform-origin: top;
+    }
+  
+    15% {
+      transform: rotateZ(10deg);
+    }
+  
+    30% {
+      transform: rotateZ(-10deg);
+    }
+  
+    45% {
+      transform: rotateZ(5deg);
+    }
+  
+    60% {
+      transform: rotateZ(-5deg);
+    }
+  
+    75% {
+      transform: rotateZ(2deg);
+    }
+  }
+
+/* TESTE */
+
+.esquerdaCabecalho {
+    /* width: 20vw; */
+    width: 50%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.inputLogin {
+    border-radius: 15px;
+    border: none;
+    height: 5vh;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    outline: none;
+    display: flex;
+    -webkit-transition: all 700ms cubic-bezier(0.23,1,0.32,1);
+    transition: all 700ms cubic-bezier(0.23,1,0.32,1);
+    position: relative;
+    width:30%;
+    padding: 0 20px;
+}
+
+.inputLogin:focus{
+    width: 100%;
+    transition: all 700ms cubic-bezier(0.23,1,0.32,1) 0s;
+    position: relative;
+}
+
+.inputLogin::placeholder {
+    font-size: 11px;
+    position: relative;
+    top: -5%;
+    left: 5%;
+}
+
+.lupaBusca {
+    width: 2vw;
+    height: 3.5vh;
+    position: relative;
+    right: 7%;
+}
+/* fim do cabeçalho */
+
+/* Começo do conteudo */
+.mainPai{
+    display: flex;
+    flex-direction: column;
+    background-color: #dddddd;
+    height: 100%;
+    background-size: cover;
+}
+
+.mainFilho{
+    width: 90%;
+    height: 100%;
+    margin: auto;
+}
+
+.titulo{
+    display: flex;
+    width: 65%;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.numSetor{
+    font-size: xx-large;
+    font-weight: 600;
+}
+
+.nomeSetor{
+    font-size: larger;
+    font-weight: 500;
+}
+
+.btn{
+    border: none;
+    background-color: #38b0ac;
+    color: #fff;
+    padding: 5px;
+    border-radius: 15px;
+    width: 130px;
+    box-shadow: rgba(50, 50, 93, 0.1) 0px 8px 0px 0px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.btn2{
+    background-color: black;
+    color: #fff;
+}
+
+.btn:hover{
+    transform: scale(1.05) ;
+    cursor: pointer;
+}
+
+.kpeis{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: 30px 0;
+}
+
+.cardPai{
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 1px 5px 15px 1px;
+}
+
+.cardFilho{
+    border-left: solid 5px #26aba7;
+    margin: 10px 0 0 10px;
+    padding: 5px;
+
+}
+
+.cardTexto{
+    display: flex;
+    justify-content: space-around;
+    width: 200px;
+}
+
+.txtUso{
+    font-size: medium;
+    width: 80%;
+}
+
+.imgCard{
+    width: 25px;
+    height: 25px;
+    background-color: #a8dddc;
+}
+
+.infoCard{
+    font-size: x-large;
+    /* margin: 10px 0 0 20px; */
+}
+
+.infoStatus{
+    font-size: x-small;
+    margin: 20px 10px;
+}
+
+.setaStatus{
+    width: 10px;
+    height: 10px;
+}
+
+.corStatus{
+    color: #008000;
+}
+
+.red{
+    color: #ff0000;
+}
+
+.boxes{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0 1.95px 2.6px 2px;
+    width: 43%;
+    height: 250px;
+}
+
+.boxAvisos{
+    overflow-y: scroll;
+}
+
+.tituloBox{
+    font-size: larger;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+}
+
+.divUso{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.nomeComponente{
+    margin: auto;
+    width: 95%;
+    font-size: small;
+}
+
+/* .infoBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+} */
+
+
+.usoComponente{
+    border-radius: 10px;
+    border: none;
+    background-color: #dddddd;
+    width: 90%;
+}
+
+.txtUso{
+    font-size: small;
+}
+
+.porcentUso{
+    font-size: x-small;
+}
+
+input[disabled] {
+    pointer-events: none;
+  }
+  
+
+.cpu{
+    background: linear-gradient(90deg, rgba(114,240,172,1) 50%, rgba(221,221,221,1) 50%);
+}
+
+.disco{
+    background: linear-gradient(90deg, rgba(253,51,51,1) 90%, rgba(221,221,221,1) 10%);
+}
+
+.ram{
+    background: linear-gradient(90deg, rgba(225,229,34,1) 70%, rgba(221,221,221,1) 0%);
+}
+
+.infoAviso{
+    border-radius: 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 4px 3px 0px, rgba(0, 0, 0, 0.3) 0px 5px 5px -15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 15px;
+    font-weight: 500;
+    font-size: small;
+}
+
+.tituloAviso{
+    width: 160px;
+}
+
+.iconAviso{
+    width: 25px;
+    height: 25px;
+}
+/* Fim do conteudo */

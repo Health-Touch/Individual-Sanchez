@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/dashSetor.css">
+    <script src="./js/dashSetor.js"></script>
+    <script src="js/funcoes.js"></script>
+    <link rel="shortcut icon" type="imagex/png" href="./assets/img/logo_icon.png" />
+    <title>Análise Máquina | Health Touch</title>
+</head>
+<!-- <body onload="validarSessao(), validarSetor(), validarStatusUsb(), cpuMensal(), ramMensal(), discoMensal(), insightCpu(), insightRam(), insightDisco(), analiseGeral(), exibirAlertas()"> -->
+
+<body onload="validarSessao(), validarSetor(), limparConsole()">
+    <div class="divPai">
+        <!-- inicio menu lateral -->
+        <div class="divPaiLateral">
+            <div class="filhoLateral">
+
+                <div class="divNomeEmpresa">
+
+                    <p id="textoEmpresa">Bem Vindo</p>
+                    <p id="nomeEmpresa">Bem Vindo <br><span> Nome da Empresa </span></p>
+                </div>
+
+                <div class="divMainMenu">
+                    <p id="pMainMenu">MAIN MENU</p>
+                </div>
+
+                <div class="divPaiOpcoesMenu">
+                    <a href="setores.html" id="pMenuLateral">
+                        <div class="divHome">
+                            <img id="iconMenuLateralHome" src="assets/img/grafico-de-setores.png">
+                            <div class="divEspaco"></div>
+                            Setores
+                        </div>
+                    </a>
+
+                    <a href="cadastroMaquinas.html" id="pMenuLateral">
+                        <div class="divComputador">
+                            <img id="iconComputadorLateral" src="assets/img/computador (4).png">
+                            <div class="divEspaco"></div>
+                            Cadastro Máquinas
+                        </div>
+                    </a>
+
+                    <a href="analiseMaquinaTI.html" id="pMenuLateral">
+                        <div class="divCadastroComputador">
+                            <img id="iconComputadorCadLateral" src="assets/img/definicoes.png">
+                            <div class="divEspaco"></div>
+                            Análise Máquinas
+                        </div>
+                    </a>
+
+                    <a href="cadastroFuncionarios.html" id="pMenuLateral">
+                        <div class="divAnaliseEquipe">
+                            <img id="iconAnaliseEquipe" src="assets/img/carteira-de-identidade.png">
+                            <div class="divEspaco"></div>
+                            Cadastro Equipe
+                        </div>
+                    </a>
+
+                    <a href="analiseFuncionario.html" id="pMenuLateral">
+                        <div class="divDashboards">
+                            <img id="iconDashboardsLateral" src="assets/img/equipe.png">
+                            <div class="divEspaco"></div>
+                            Análise Funcionários
+                        </div>
+                    </a>
+
+                    <a href="" id="pMenuLateral">
+                        <div class="divCadastroEquipe">
+                            <img id="iconCadastroEquipe" src="assets/img/mais (2).png">
+                            <div class="divEspaco"></div>
+                            Dashboards
+                        </div>
+                    </a>
+                </div>
+
+                <div class="divEspacoV2"></div>
+
+                <div class="divHelp">
+                    <p id="pHelp">HELP</p>
+                </div>
+
+                <div class="divPaiHelpMenu">
+                    <a href="SuporteHealthTooch.html" id="pMenuLateral">
+                        <div class="divHelpDesk">
+                            <img id="iconHelpDesk" src="assets/img/suporte-ao-cliente.png">
+                            <div class="divEspaco"></div>
+                            HelpDesk
+                        </div>
+                    </a>
+                    <a href="AtualizarUser.html" id="pMenuLateral">
+                        <div class="divConfiguracoes">
+                            <img id="iconConfiguracoes" src="assets/img/botao-de-roda-dentada-de-configuracoes.png">
+                            <div class="divEspaco"></div>
+                            Configurações
+                        </div>
+                    </a>
+                    <a href="index.html">
+                        <img id="logoMenuLateral" src="assets/img/logoMenu.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- fim do menu lateral -->
+
+        <!-- inicio do cabeçalho -->
+        <div class="divPaiCabecalho">
+            <div class="filhoCabecalho">
+
+                <div class="esquerdaCabecalho">
+                    <input type="text" class="inputLogin" placeholder="Pesquisar"></input>
+                    <img src="assets/img/lupa.png" class="lupaBusca">
+                </div>
+
+                <div class="direitaCabecalho">
+                    <img class="emailIconCabecalho" src="assets/img/iconEmail.png">
+                    <img class="sinoIconCabecalho" src="assets/img/notificacaoIcon.png">
+                    <div class="divPerfilCabecalho">
+                        <img class="iconPerfilCabecalho" src="assets/img/fotoPerfil.png">
+                        <div class="textosIcon">
+                            <p id="tituloPerfil">Anthony Bento</p>
+                            <p id="cargoPerfil">CEO</p>
+                        </div>
+                        <img class="setaPerfilCabecalho" src="assets/img/setaIcon.png" onclick="exibirMenuPerfil()">
+                        <div id="menuPerfil" class="menuPerfil">
+                            <ul>
+                                <button class="btnSair">
+                                    <div class="sign"><svg viewBox="0 0 512 512">
+                                            <path
+                                                d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z">
+                                            </path>
+                                        </svg></div>
+
+                                    <div class="txtBtn" onclick="limparSessao()">Sair</div>
+                                </button>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- começo conteudo pagina -->
+            <div class="mainPai">
+                <div class="mainFilho">
+                    <div class="titulo">
+                        <span class="numSetor">Computador <span id="idComputador">1</span></span>
+                        <span class="nomeSetor" id="nomeSetor">Pediatria</span>
+                        <span class="numComputador">Setor <span id="idSala">1</span></span>
+                        <button class="btn" onclick="trocar()">Trocar</button>
+                        <button class="btn btn2" onclick="detalhada()">Dash Detalhada</button>
+                    </div>
+                    <div class="kpeis">
+                        <div class="cardPai">
+                            <div class="cardFilho">
+                                <div class="cardTexto">
+                                    <span class="txtUso">Uso do USB Atual</span>
+                                    <img src="assets/img/usb.png" alt="" class="imgCard">
+                                </div>
+                                <span class="infoCard" id="statusUsb">Inativo</span>
+                            </div>
+                        </div>
+
+                        <div class="cardPai">
+                            <div class="cardFilho">
+                                <div class="cardTexto">
+                                    <span class="txtUso">Maior % do Uso Mensal da CPU</span>
+                                    <img src="assets/img/cpu.png" alt="" class="imgCard">
+                                </div>
+                                <span class="infoCard"><span id="usoCpuMensal">60</span> %</span>
+                            </div>
+                            <div class="statusCard">
+                                <span class="infoStatus"><img class="setaStatus" id="setaCpu"
+                                        src="assets/img/green-arrow.png" alt=""><span class="corStatus"
+                                        id="insightCpu">+5,3</span> Desde o último mês</span>
+                            </div>
+                        </div>
+
+                        <div class="cardPai">
+                            <div class="cardFilho">
+                                <div class="cardTexto">
+                                    <span class="txtUso">Maior % do Uso Mensal da RAM</span>
+                                    <img src="assets/img/ram.png" alt="" class="imgCard">
+                                </div>
+                                <span class="infoCard"><span id="usoRamMensal">50</span> %</span>
+                            </div>
+                            <div class="statusCard">
+                                <span class="infoStatus"><img class="setaStatus" id="setaRam"
+                                        src="assets/img/red-arrow.png" alt=""><span class="corStatus red"
+                                        id="insightRam">-35,6</span> Desde o último mês</span>
+                            </div>
+                        </div>
+
+                        <div class="cardPai">
+                            <div class="cardFilho">
+                                <div class="cardTexto">
+                                    <span class="txtUso">Maior % do Uso Mensal do Disco</span>
+                                    <img src="assets/img/drive-de-disco-rigido.png" alt="" class="imgCard">
+                                </div>
+                                <span class="infoCard"><span id="usoDiscoMensal">70</span> %</span>
+                            </div>
+                            <div class="statusCard">
+                                <span class="infoStatus"><img class="setaStatus" id="setaDisco"
+                                        src="assets/img/green-arrow.png" alt=""><span class="corStatus"
+                                        id="insightDisco">+62,3</span> Desde o último mês</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="boxes">
+                        <div class="box">
+                            <span class="tituloBox">Uso Atual dos Componentes</span>
+                            <!-- <div class="infoBox"> -->
+                            <span class="nomeComponente">CPU</span>
+                            <div class="divUso">
+                                <input type="text" class="usoComponente cpu" id="usoCpu" disabled>
+                                <span class="porcentUso" id="percentCpu">50%</span>
+                            </div>
+                            <!-- </div> -->
+                            <!-- <div class="infoBox"> -->
+                            <span class="nomeComponente">DISCO</span>
+                            <div class="divUso">
+                                <input type="text" class="usoComponente disco" id="usoDisco" disabled>
+                                <span class="porcentUso" id="percentDisco">90%</span>
+                            </div>
+                            <!-- </div> -->
+                            <!-- <div class="infoBox"> -->
+                            <span class="nomeComponente">MEMÓRIA</span>
+                            <div class="divUso">
+                                <input type="text" class="usoComponente ram" id="usoRam" disabled>
+                                <span class="porcentUso" id="percentRam">70%</span>
+                            </div>
+                            <!-- </div> -->
+                        </div>
+                        <div class="box boxAvisos" id="boxAvisos">
+                            <span class="tituloBox">Histórico de Avisos</span>
+                            <div class="infoAviso">
+                                <span class="tituloAviso">CPU chegou em 90%</span>
+                                <span class="dataAviso">02/10/2023 9:30:14</span>
+                                <img src="assets/img/aviso.png" alt="" class="iconAviso">
+                            </div>
+                            <div class="infoAviso">
+                                <span class="tituloAviso">Disco está em 70%</span>
+                                <span class="dataAviso">02/10/2023 9:30:14</span>
+                                <img src="assets/img/aviso-red.png" alt="" class="iconAviso">
+                            </div>
+                            <div class="infoAviso">
+                                <span class="tituloAviso">USB ATIVO</span>
+                                <span class="dataAviso">02/10/2023 9:30:14</span>
+                                <img src="assets/img/aviso-orange.png" alt="" class="iconAviso">
+                            </div>
+                            <div class="infoAviso">
+                                <span class="tituloAviso">USB ATIVO</span>
+                                <span class="dataAviso">02/10/2023 9:30:14</span>
+                                <img src="assets/img/aviso-orange.png" alt="" class="iconAviso">
+                            </div>
+                            <div class="infoAviso">
+                                <span class="tituloAviso">CPU chegou em 90%</span>
+                                <span class="dataAviso">02/10/2023 9:30:14</span>
+                                <img src="assets/img/aviso.png" alt="" class="iconAviso">
+                            </div>
+                            <div class="infoAviso">
+                                <span class="tituloAviso">Disco está em 70%</span>
+                                <span class="dataAviso">02/10/2023 9:30:14</span>
+                                <img src="assets/img/aviso-red.png" alt="" class="iconAviso">
+                            </div>
+                            <div class="infoAviso">
+                                <span class="tituloAviso">USB ATIVO</span>
+                                <span class="dataAviso">02/10/2023 9:30:14</span>
+                                <img src="assets/img/aviso-orange.png" alt="" class="iconAviso">
+                            </div>
+                            <div class="infoAviso">
+                                <span class="tituloAviso">USB ATIVO</span>
+                                <span class="dataAviso">02/10/2023 9:30:14</span>
+                                <img src="assets/img/aviso-orange.png" alt="" class="iconAviso">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- fim conteudo pagina -->
+        </div>
+        <!-- fim do cabeçalho -->
+    </div>
+</body>
+
+</html>
+
+<script>
+    var Empresa = sessionStorage.NOME_FANTASIA_COLABORADOR;
+    nomeEmpresa.innerHTML = Empresa;
+</script>

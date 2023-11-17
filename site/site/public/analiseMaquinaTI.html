@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/baseDash.css">
+    <link rel="stylesheet" href="css/analiseMaquinaTI.css">
+    <title>Máquinas | Health Touch</title>
+    <link rel="shortcut icon" type="imagex/png" href="./assets/img/logo_icon.png" />
+</head>
+
+<style>
+    .setaPerfilCabecalho:hover {
+    cursor: pointer;
+}
+.menuPerfil ul {
+    padding: 0;
+}
+.btnSair {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    background-color: rgb(255, 65, 65);
+}
+.btnSair:hover {
+    width: 90px;
+    border-radius: 40px;
+    transition-duration: .3s;
+}
+.btnSair:hover .sign {
+    width: 45%;
+    transition-duration: .3s;
+}
+.btnSair:hover .txtBtn {
+    opacity: 1;
+    width: 70%;
+    transition-duration: .3s;
+}
+.sign {
+    width: 100%;
+    transition-duration: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sign svg {
+    width: 17px;
+}
+.sign svg path {
+    fill: white;
+}
+.txtBtn {
+    position: absolute;
+    right: 0%;
+    width: 0%;
+    opacity: 0;
+    color: white;
+    font-size: 1em;
+    font-weight: 600;
+    transition-duration: .3s;
+}
+</style>
+<body onload="atualizarTodosComputadores()">
+
+    <div class="divPai" >
+         <!-- inicio menu lateral -->
+        <div class="divPaiLateral">
+            <div class="filhoLateral">
+
+                <div class="divNomeEmpresa">
+
+                    <p id="textoEmpresa">Bem Vindo</p>
+                    <p id="nomeEmpresa">Bem Vindo <br><span> Nome da Empresa </span></p>
+                </div>
+
+                <div class="divMainMenu">
+                    <p id="pMainMenu">MAIN MENU</p>
+                </div>
+
+                <div class="divPaiOpcoesMenu">
+                    <a href="setores.html" id="pMenuLateral">
+                        <div class="divHome">
+                            <img id="iconMenuLateralHome" src="assets/img/grafico-de-setores.png">
+                            <div class="divEspaco"></div>
+                            Setores
+                        </div>
+                    </a>
+
+                    <a href="cadastroMaquinas.html" id="pMenuLateral">
+                        <div class="divComputador">
+                            <img id="iconComputadorLateral" src="assets/img/computador (4).png">
+                            <div class="divEspaco"></div>
+                            Cadastro Máquinas
+                        </div>
+                    </a>
+
+                    <a href="analiseMaquinaTI.html" id="pMenuLateral">
+                        <div class="divCadastroComputador">
+                            <img id="iconComputadorCadLateral" src="assets/img/definicoes.png">
+                            <div class="divEspaco"></div>
+                            Análise Máquinas
+                        </div>
+                    </a>
+
+                    <a href="cadastroFuncionarios.html" id="pMenuLateral">
+                        <div class="divAnaliseEquipe">
+                            <img id="iconAnaliseEquipe" src="assets/img/carteira-de-identidade.png">
+                            <div class="divEspaco"></div>
+                            Cadastro Equipe
+                        </div>
+                    </a>
+
+                    <a href="analiseFuncionario.html" id="pMenuLateral">
+                        <div class="divDashboards">
+                            <img id="iconDashboardsLateral" src="assets/img/equipe.png">
+                            <div class="divEspaco"></div>
+                            Análise Funcionários
+                        </div>
+                    </a>
+
+                    <a href="" id="pMenuLateral">
+                        <div class="divCadastroEquipe">
+                            <img id="iconCadastroEquipe" src="assets/img/mais (2).png">
+                            <div class="divEspaco"></div>
+                            Dashboards
+                        </div>
+                    </a>
+                </div>
+
+                <div class="divEspacoV2"></div>
+
+                <div class="divHelp">
+                    <p id="pHelp">HELP</p>
+                </div>
+
+                <div class="divPaiHelpMenu">
+                    <a href="SuporteHealthTooch.html" id="pMenuLateral">
+                        <div class="divHelpDesk">
+                            <img id="iconHelpDesk" src="assets/img/suporte-ao-cliente.png">
+                            <div class="divEspaco"></div>
+                            HelpDesk
+                        </div>
+                    </a>
+                    <a href="AtualizarUser.html" id="pMenuLateral">
+                        <div class="divConfiguracoes">
+                            <img id="iconConfiguracoes" src="assets/img/botao-de-roda-dentada-de-configuracoes.png">
+                            <div class="divEspaco"></div>
+                            Configurações
+                        </div>
+                    </a>
+                    <a href="index.html">
+                        <img id="logoMenuLateral" src="assets/img/logoMenu.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- fim do menu lateral -->
+
+        <!-- inicio do cabeçalho -->
+        <div class="divPaiCabecalho">
+            <div class="filhoCabecalho">
+
+                <div class="esquerdaCabecalho">
+                    <input type="text" class="inputLogin" placeholder="Pesquisar"></input>
+                    <img src="assets/img/lupa.png" class="lupaBusca">
+                </div>
+
+                <div class="direitaCabecalho">
+                    <img class="emailIconCabecalho" src="assets/img/iconEmail.png">
+                    <img class="sinoIconCabecalho" src="assets/img/notificacaoIcon.png">
+                    <div class="divPerfilCabecalho">
+                        <img class="iconPerfilCabecalho" src="assets/img/fotoPerfil.png">
+                            <div class="textosIcon">
+                                <p id="tituloPerfil">Anthony Bento</p>
+                                <p id="cargoPerfil">CEO</p>
+                            </div>
+                            <img class="setaPerfilCabecalho" src="assets/img/setaIcon.png" onclick="exibirMenuPerfil()" >
+                            <div id="menuPerfil" class="menuPerfil" style="display: none; position: absolute; z-index: 1; top: 58px;">
+                                <ul>
+                                    <button class="btnSair">
+                                        <div class="sign"><svg viewBox="0 0 512 512">
+                                                <path
+                                                    d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z">
+                                                </path>
+                                            </svg></div>
+    
+                                        <div class="txtBtn" onclick="limparSessao()">Sair</div>
+                                    </button>
+                                </ul>
+                            </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- fim do cabeçalho -->
+
+        <!-- começo conteudo pagina -->
+        <div class="divPaiConteudo">
+            <span id="tituloFuncionario">Análise de Maquinas</span>
+            <div class="divPaiInformacao">
+                    <ul class="divColuna">
+                        <li id="idTeste">ID</li>
+                        <li id="idTeste2">Sistema Operacional</li>
+                        <li id="idTeste3">Setor</li>
+                        <li id="idTeste4">Status</li>
+                    </ul>
+
+                <div class="divConteudo">
+                    <div class="divConteudoScroll" id="divConteudoScroll"></div>    
+                </div>
+
+            </div>
+        </div>
+        <!-- fim conteudo pagina -->
+
+        </div>
+    </div>
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
+<script>
+
+    function atualizarTodosComputadores() {
+        fetch("/avisos/listarTodosComputadores").then(function (resposta) {
+
+            if (resposta.ok) {
+                // if (resposta.status == 204) {
+                //     var feed = document.getElementById("feed_container");
+                //     var mensagem = document.createElement("span");
+                //     mensagem.innerHTML = "Nenhum resultado encontrado."
+                //     feed.appendChild(mensagem);
+                //     throw "Nenhum resultado encontrado!!";
+                // }
+                console.log("ENTREII")
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    for (let i = 0; i < resposta.length; i++) {
+
+                        var TodosComputadores = resposta[i];
+
+                        divConteudoScroll.innerHTML += `
+                        <div class="divfilhoConteudo">
+                            <li><img id="Computador" src="assets/AnaliseMaquinas/computadorIcon.png" alt="Computador"></li>
+                            <li id="liNumero">${TodosComputadores.idMaquina}</li>
+                            <li id="liSistema">${TodosComputadores.so}</li>
+                            <li id="liSetor">${TodosComputadores.nome}</li>
+                            <li id="liStatus" class="active">${TodosComputadores.statusMaquina}</li>
+                        <button id="liUpdate" style="color:aliceblue" onclick="ativar(${TodosComputadores.idMaquina})">Ativar</button>
+                        <button id="liDelete" style="color:aliceblue" onclick="desativar(${TodosComputadores.idMaquina})">Desativar</button>
+                        </div> 
+                        `;
+
+                        var divs = document.getElementsByClassName("active");
+                        
+                        if (divs.length > 0) {
+                            var conteudo = divs[i].textContent;
+                            if (conteudo == "Desativo") {
+                                divs[i].style.backgroundColor = "#EC6B6B";
+                                divs[i].style.color = "#8E0A0A";
+                            } else {
+                                divs[i].style.backgroundColor = "#6BECA6";
+                                divs[i].style.color = "#1D8E0A";
+                            }
+                        }
+                    }
+                    // finalizarAguardar();
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+            // finalizarAguardar();
+        });
+    }
+
+    var nome = sessionStorage.NOME_COLABORADOR;
+    tituloPerfil.innerHTML = nome;
+
+    var cargo = sessionStorage.NIVELACESSO_COLABORADOR;
+    if (cargo == "RL") {
+        cargo = "Representante"
+    }else if (cargo == "GT"){
+        cargo = "Gerente TI"
+    }
+
+    cargoPerfil.innerHTML = cargo
+
+    var Empresa = sessionStorage.NOME_FANTASIA_COLABORADOR;
+    nomeEmpresa.innerHTML = Empresa;
+
+function exibirMenuPerfil() {
+  var menu = document.getElementById('menuPerfil')
+  if (menu.style.display === 'block') {
+    menu.style.display = 'none'
+  } else {
+    menu.style.display = 'block'
+  }
+}
+
+function limparSessao() {
+  sessionStorage.clear();
+  window.location = './login.html'
+}
+
+function ativar(idMaquina) {
+    var opcaoUpdate = 1
+    var idMaquinaAtivar = idMaquina
+
+        fetch("/usuarios/updateStatusMaq", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                opcaoUpdateServer: opcaoUpdate,
+                idMaquinaServer: idMaquinaAtivar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+
+                window.location = "analiseMaquinaTI.html"
+
+            } else {
+                Swal.fire('Houve um erro ao tentar atualizar a Máquina')
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+}
+
+function desativar(idMaquina) {
+    var opcaoUpdate = 2
+    var idMaquinaDesativar = idMaquina
+
+        fetch("/usuarios/updateStatusMaq", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                opcaoUpdateServer: opcaoUpdate,
+                idMaquinaServer: idMaquinaDesativar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+
+                window.location = "analiseMaquinaTI.html"
+
+            } else {
+                Swal.fire('Houve um erro ao tentar atualizar a Máquina')
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+}
+
+function mudarCor () {
+
+    var liStatus = document.getElement("liStatus");
+
+    if (liStatus.textContent == "Desativo") {
+        liStatus.style.backgroundColor = "red"
+    } else {
+        liStatus.style.backgroundColor = "#4fff3081"
+    }
+}
+
+</script>

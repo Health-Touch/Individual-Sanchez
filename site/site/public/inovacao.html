@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/inovacao.css"/>
+    <title>Toten</title>
+</head>
+
+<!-- <button onclick="Btn1()"> Dermatologista </button>
+<button onclick="Btn2()"> Clínico Geral </button> -->
+<!-- <button onclick="Btn3()"> Pediatria </button>
+<button onclick="Btn4()"> Dentista </button> -->
+
+<body>
+    
+    <div class="divPai">
+        <div class="divFilho">
+
+            <div class="divCima">
+                <div class="cimaEsquerda"></div>
+                <img id="iconHospitalCima" src="./assets/img/iconHospital.png">
+                <div class="cimaDireita"></div>
+            </div>
+
+            <p id="pTitulo">BEM VINDO</p>
+            <p id="pSubtitulo">Escolha o Setor Para o Atendimento</p>
+
+            <div class="divPaiBox1">
+
+                <div class="box">
+                    <img id="iconBox1" src="./assets/img/iconClinicoGeral.png">
+                    <p id="tituloBox">Clínico Geral</p>
+                    <button id="btnBox" onclick="btnBox1()">Gerar Senha</button>
+                </div>
+
+                <div class="box">
+                    <img id="iconBox" src="./assets/img/dentista.png">
+                    <p id="tituloBox">Dentista</p>
+                    <button id="btnBox" onclick="btnBox2()">Gerar Senha</button>
+                </div>
+                <div class="box">
+                    <img id="iconBox3" src="./assets/img/pediatria.png">
+                    <p id="tituloBox">Pediatria</p>
+                    <button id="btnBox" onclick="btnBox3()">Gerar Senha</button>
+                </div>
+            </div>
+
+            <div class="divPaiBox2">
+
+                <div class="box">
+                    <img id="iconBox4" src="./assets/img/ortopedista.png ">
+                    <p id="tituloBox">Ortopedista</p>
+                    <button id="btnBox" onclick="btnBox4()">Gerar Senha</button>
+                </div>
+                <div class="box">
+                    <img id="iconBox5" src="./assets/img/exame-de-saude.png">
+                    <p id="tituloBox">Exames</p>
+                    <button id="btnBox" onclick="btnBox5()">Gerar Senha</button>
+                </div>
+                <div class="box">
+                    <img id="iconBox" src="./assets/img/nutricionista.png">
+                    <p id="tituloBox">Nutricionista</p>
+                    <button id="btnBox" onclick="btnBox6()">Gerar Senha</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
+<script>
+    
+    var nomeBotao = ""
+
+    function btnBox1() {
+        swal.fire("Atendimento Gerado <br> Retire sua senha abaixo")
+        nomeBotao = "Clínico Geral"
+        registrar()
+    }
+
+    function btnBox2() {
+        swal.fire("Atendimento Gerado <br> Retire sua senha abaixo")
+        nomeBotao = "Dentista"
+        registrar()
+    }
+
+    function btnBox3() {
+        swal.fire("Atendimento Gerado <br> Retire sua senha abaixo")
+        nomeBotao = "Pediatria"
+        registrar()
+    }
+
+    function btnBox4() {
+        swal.fire("Atendimento Gerado <br> Retire sua senha abaixo")
+        nomeBotao = "Ortopedista"
+        registrar()
+    }
+
+    function btnBox5() {
+        swal.fire("Atendimento Gerado <br> Retire sua senha abaixo")
+        nomeBotao = "Exames"
+        registrar()
+    }
+
+    function btnBox6() {
+        swal.fire("Atendimento Gerado <br> Retire sua senha abaixo")
+        nomeBotao = "Nutricionista"
+        registrar()
+    }
+
+    function registrar() {
+
+    var nomeBotaoVar = nomeBotao
+    var fkMaquina = 2
+    var fkEmpresa = sessionStorage.ID_EMPRESA_COLABORADOR
+    var fkPlanoEmpresa = sessionStorage.PLANO_EMPRESA
+    var fkTipoMaquina = 2
+
+// Enviando o valor da nova input
+fetch("/usuarios/registrar", {
+    
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeBotaoServer: nomeBotaoVar,
+        empresaMaqServer: fkMaquina,
+        empresaServer: fkEmpresa,
+        planoServer: fkPlanoEmpresa,
+        tipoMaquinaServer: fkTipoMaquina 
+    })
+}).then(function (resposta) {
+
+    console.log("resposta: ", resposta);
+
+    if (resposta.ok) {
+        console.log(resposta);
+
+        // setTimeout(() => {
+        //     window.location = "dashboard/Menu.html";
+        // }, "2000")
+        console.log("okkk")
+        // limparFormulario();
+        // finalizarAguardar();
+    } else {
+        throw ("erro no html");
+    }
+}).catch(function (resposta) {
+    console.log(`#ERRO: ${resposta}`);
+    // finalizarAguardar();
+});
+return false;
+}
+
+</script>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  
+    <link rel="stylesheet" href="./css/cadastro.css" />
+    <link rel="stylesheet" href="css/indexV2.css" />
+    <script src="./js/funcoes.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script> -->
+
+    <link
+      rel="shortcut icon"
+      type="imagex/png"
+      href="./assets/img/logo_icon.png"
+    />
+
+    <title>Cadastro | Health Touch</title>
+  </head>
+  <body>
+    <!-- começo do cabeçalho -->
+    <div class="paiCabecalho">
+      <div class="filhoCabecalho">
+        <div class="esquerdaCabecalho">
+          <img
+            src="./assets/img/logo_navbar.png"
+            id="imgEsquerdaCabecalho"
+            onclick="home()"
+          />
+        </div>
+      </div>
+    </div>
+    <!-- fim do cabeçalho -->
+
+    <div class="wrapper active-popup">
+      <div class="form-box login">
+        <h2 id="tituloCadastros">Dados da Empresa</h2>
+        <!-- <form action="#"> -->
+          <div class="input-box">
+            <span class="icon">
+              <ion-icon name="person"></ion-icon>
+            </span>
+            <input type="text" id="input_nome" />
+            <label>Nome Fantasia</label>
+          </div>
+
+          <div class="input-box">
+            <span class="icon">
+              <ion-icon name="cnpjt"></ion-icon>
+            </span>
+            <input type="text" id="input_cnpj" />
+            <label>CNPJ</label>
+          </div>
+
+          <div class="input-box">
+            <span class="icon">
+              <ion-icon name="lock-closed"></ion-icon>
+            </span>
+            <input type="text" id="input_telefone" />
+            <label>Telefone Fixo</label>
+          </div>
+          <div class="remember-forgot">
+          </div>
+          <button onclick="cadastrarEmpresa()" type="submit" class="btn">
+            Registrar e Prosseguir
+          </button>
+          <div class="login-register">
+            <p>Já tem uma conta? <a href="login.html" class="login-link">Login</a></p>
+          </div>
+        
+      </div>
+    </div>
+
+  </body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
+<script>
+  function cadastrarEmpresa() {
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = input_nome.value
+    var cnpjVar = input_cnpj.value
+    var telefoneVar = input_telefone.value
+
+    var termos = document.getElementById('termos')
+
+    if (nomeVar == '' || cnpjVar == '' || telefoneVar == '') {
+      swal.fire('Preencha todos os campos')
+      } else if (cnpjVar.length != 14) {
+        swal.fire('CNPJ precisa ter 14 caracteres')
+        } else if (telefoneVar.length != 10) {
+          swal.fire ('Telefone precisa ter 10 caracteres')
+    } else {
+      setInterval(sumirMensagem, 5000)
+
+      // Enviando o valor da nova input
+      fetch('/usuarios/cadastrarEmpresa', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          nomeServer: nomeVar,
+          cnpjServer: cnpjVar,
+          telefoneServer: telefoneVar
+        })
+      })
+        .then(function (resposta) {
+          console.log('resposta: ', resposta)
+
+          if (resposta.ok) {
+            console.log("Cadastro realizado com sucesso! Redirecionando para tela de Login.")
+            resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    
+                    sessionStorage.ID_EMPRESA = json.idEmpresa;
+                    // sessionStorage.SOBRENOME_USUARIO = json.sobrenome;
+                    // sessionStorage.SENHA_USUARIO = json.senha;
+
+                    setTimeout(function () {
+                        window.location = "cadastroEndereco.html";
+                    }, 500); // apenas para exibir o loading
+
+                });
+    
+
+         
+
+            limparFormulario()
+          } else {
+            throw 'Houve um erro ao tentar realizar o cadastro!'
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`)
+        })
+
+      return false
+    }
+  }
+
+  
+
+  function sumirMensagem() {
+    // cardErro.style.display = 'none'
+  }
+
+  function visualizarTermos() {
+    // cardErro.style.display = 'block'
+    console.log("Ao assinar esses termos eu garanto que não causarei problemas, não hackearei o site e serei responsavel jogando genshin impact.")
+    setTimeout(sumirMensagem, 10000)
+  }
+
+  function btnLogin() {
+    window.location.href = 'login.html'
+  }
+
+  function home() {
+    window.location = '/index.html'
+  }
+</script>

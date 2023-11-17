@@ -1,0 +1,551 @@
+* {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.divPai {
+    display: flex;
+}
+
+.divPaiCabecalho {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(218, 218, 218);
+    align-items: center;
+}   
+
+.filhoCabecalho {
+    width: 90vw;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    background-color: white;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    position: relative;
+    top: -4%;
+}
+
+.divPerfilCabecalho {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 14vw;
+    height: 7vh;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.textosIcon {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#tituloPerfil {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#cargoPerfil {
+    font-size: 12px;
+}
+
+.iconPerfilCabecalho {
+    width: 3vw;
+    height: 6vh;
+}
+
+.setaPerfilCabecalho {
+    width: 1vw;
+    height: 2vh;
+}
+
+.emailIconCabecalho {
+    width: 1.5vw;
+    height: 3vh;
+}
+
+.sinoIconCabecalho {
+    width: 1.5vw;
+    height: 3vh;
+}
+
+.esquerdaCabecalho {
+    width: 20vw;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.inputLogin {
+    border-radius: 15px;
+    border: none;
+    height: 5vh;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    outline: none;
+    display: flex;
+    margin: 20px;
+}
+
+.inputLogin::placeholder {
+    font-size: 11px;
+    position: relative;
+    top: -5%;
+    left: 5%;
+}
+
+.lupaBusca {
+    width: 25px;
+    height: 25px;
+    position: relative;
+    right: 20%;
+}
+
+
+.direitaCabecalho {
+    width: 22vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* começo do menu lateral*/
+.divPaiLateral {
+    background-color: #020F1F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 13vw;
+    height: 100vh;
+}
+
+.filhoLateral {
+    width: 10vw;
+    height: 96vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.divNomeEmpresa {
+    width: 9vw;
+    height: 5vh;
+    position: relative;
+    top: 2%;
+}
+
+#textoEmpresa {
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+#nomeEmpresa {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.divMainMenu {
+    width: 9vw;
+    height: 5vh;
+    position: relative;
+    top: 7%;
+}
+
+#pMainMenu {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.divPaiOpcoesMenu {
+    width: 100%;
+    height: 40vh;
+    position: relative;
+    top: 8%;
+}
+
+.divPaiOpcoesMenu a {
+    text-decoration: none;
+}
+
+
+.divHome {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 6.7vw;
+}
+
+#iconMenuLateralHome {
+    width: 2vw;
+    height: 4vh;
+}
+
+#pMenuLateral {
+    color: white;
+    font-size: 11px;
+    text-decoration: none;
+}
+
+.divEstatisticas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 8vw;
+    position: relative;
+    top: 5%;
+}
+
+#iconEstatiscasLateral {
+    width: 1.8vw;
+    height: 3.8vh;
+}
+
+.divEspaco {
+    width: 5vw;
+    height: 5vh;
+}
+
+.divDashboards {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 8.5vw;
+    position: relative;
+    top: 18%;
+}
+
+#iconDashboardsLateral {
+    width: 1.8vw;
+    height: 3.8vh;
+}
+
+.divComputador {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 7.5vw;
+    position: relative;
+    top: 3%;
+}
+
+#iconComputadorLateral {
+    width: 2vw;
+    height: 4.2vh;
+}
+
+.divCadastroComputador {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 7.5vw;
+    position: relative;
+    top: 8%;
+}
+
+#iconComputadorCadLateral {
+    width: 3vw;
+    height: 4vh;
+}
+
+.divAnaliseEquipe {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 7.2vw;
+    position: relative;
+    top: 13%;
+}
+
+#iconAnaliseEquipe {
+    width: 2vw;
+    height: 4vh;
+}
+
+.divCadastroEquipe {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 8.2vw;
+    position: relative;
+    top: 23%;
+}
+
+#iconCadastroEquipe {
+    width: 2vw;
+    height: 3.5vh;
+}
+
+.divHelp {
+    width: 9vw;
+    height: 5vh;
+    position: relative;
+    top: 20%;
+}
+
+.divPaiHelpMenu {
+    width: 9vw;
+    height: 5vh;
+    position: relative;
+    top: 20%;
+}
+
+#pHelp {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.divHelpDesk {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 7vw;
+    position: relative;
+    top: 5%;
+}
+
+#iconHelpDesk {
+    width: 2vw;
+    height: 4vh;
+}
+
+.divConfiguracoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 8.8vw;
+    position: relative;
+    top: 35%;
+}
+
+#iconConfiguracoes {
+    width: 2vw;
+    height: 4vh;
+}
+
+#logoMenuLateral {
+    width: 7vw;
+    height: 8vh;
+    position: relative;
+    top: 70%;
+}
+
+.divEspacoV2 {
+    background-color: rgba(255, 255, 255, 0.409);
+    width: 9vw;
+    height: 0.1vh;
+    position: relative;
+    top: 17%;
+
+}
+
+/* fim do menu lateral */
+
+/* começo do conteudo */
+.divPaiConteudo {
+        width: 95%;
+        height: 80%;
+        background-color: white;
+        border-radius: 10px;
+        margin: 10px;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        position: relative;
+        top: -5%;
+}
+
+#tituloFuncionario {
+    font-size: 28px;
+    position: relative;
+    top: 5%;
+    left: 13%;
+}
+
+.divPaiInformacao{
+    position: relative;
+    top: -8%;
+}
+
+span {
+    font-size: 40px;
+    position: relative;
+    top: 2%;
+    left: 5%;
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    flex-direction:row;
+}
+
+.divPaiInformacao img{
+    height:30px;
+    width:30px;
+}
+
+.divColuna{
+    display:flex;
+    align-items: center;
+    position:relative;
+    top: 90px;
+    width: 70vw;
+    height: 5vh;
+    color: rgb(155, 155, 155);
+    background-color: rgb(255, 255, 255);
+}
+
+#idTeste {
+    position: relative;
+    left: 11.5%;
+    z-index: 1;
+    font-size: 12px;
+}
+
+#idTeste2 {
+    font-size: 15px;
+    position: relative;
+    left: 22%;
+    font-size: 12px;
+}
+
+#idTeste3 {
+    position: relative;
+    left: 38%;
+    z-index:3;
+    font-size: 12px;
+}
+#idTeste4{
+    position: relative;
+    left: 50.7%;
+    font-size: 12px;
+}
+
+#idTeste5{
+    font-size: 12px;
+    position: relative;
+    left: 59%;
+}
+
+.divConteudo{
+    display:flex;
+    flex-direction: column;
+    position: relative;
+    top: 50px;
+    right:1%;
+    width:98%;
+    margin:4%;
+    height: 50%;
+}
+
+.divConteudoScroll{
+    height:90%;
+    width: 95%;
+    max-height:57vh;
+    overflow-y:scroll;
+}
+
+.divConteudo li{
+    list-style: none;
+}
+
+.divfilhoConteudo{
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    display:flex;
+    flex-direction:row;
+    width: 90%;
+    height: 20px;
+    border-radius: 35px;
+    padding: 15px 30px;
+    margin:20px;
+    position: relative;
+    top: -17px;
+}
+
+#liNumero{
+    position:relative;
+    left: 3.5%;
+    font-size: 14px;
+}
+
+#linome{
+    position:relative;
+    left: 8%;
+    width:80px;
+    text-align:center;
+    width: 12vw;
+    font-size: 14px;
+}
+
+#liemail{
+    width: 120px;
+    position:relative;
+    left: 12%;
+    text-align:center;
+    font-size: 14px;
+}
+
+#liCargo{
+    position:relative;
+    left: 20.5%;
+    width:100px;
+    text-align:center;
+}
+
+#liUpdate{
+    position:relative;
+    left: 23%;
+    border-radius: 30px;
+    width: 8%;
+    height:110%;
+    background-color:#020F1F;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    padding:2px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    font-size: 13px;
+}
+
+#liDelete {
+    position:relative;
+    left: 26%;
+    border-radius: 30px;
+    width: 10%;
+    height:110%;
+    background-color:#020F1F;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    padding:2px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    font-size: 13px;
+}
+
+.active {
+    border-radius:20px;
+    width:70px;
+    height: 25px;
+    text-align: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    position:relative;
+    z-index:97;
+    left: 18%;
+}
+
+/* fim do conteudo */

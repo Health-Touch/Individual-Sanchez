@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/indexV2.css" />
+  <title>Home | Health Touch</title>
+  <link rel="shortcut icon" type="imagex/png" href="./assets/img/logo_icon.png" />
+  <script src="js/index.js"></script>
+</head>
+
+<body>
+  <!-- começo do cabeçalho -->
+  <div class="paiCabecalho">
+    <div class="filhoCabecalho">
+      <div class="esquerdaCabecalho">
+        <img src="./assets/img/logo_navbar.png" id="imgEsquerdaCabecalho" onclick="home()" />
+      </div>
+
+      <div class="direitaCabecalho">
+        <div class="subDireitaCabecalho">
+          <div class="divSaibaMais"><a href="#saibaMais">SAIBA MAIS</a></div>
+          <div class="divLogin"><a href="login.html">LOGIN</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- fim do cabeçalho -->
+
+  <!-- começo do banner principal -->
+  <div class="paiBanner">
+    <div class="divFilhoBanner">
+      <div class="tituloBanner">
+        <p class="pTituloBanner">
+          O MELHOR ATENDIMENTO <br />
+          COMEÇA EM VOCÊ
+        </p>
+      </div>
+
+      <div class="divBoxBotaoBanner">
+        <div class="botaoBanner">
+          <a href="#saibaMais" class="botao1Banner"><span>Saiba Mais</span></a>
+          <a href="#redirecionamentoContato" class="botao2Banner"><span>Fale Conosco</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- fim do banner principal -->
+
+  <!-- começo do contexto -->
+  <div class="paiContexto">
+    <div class="filhoContexto">
+      <div class="divTituloContexto" id="saibaMais">
+        <p>ENTENDA NOSSO CONTEXTO</p>
+      </div>
+      <div class="divSubContexto">
+        <p>QUAL É O PROBLEMA QUE VAMOS RESOLVER?</p>
+      </div>
+
+      <div class="paiBoxContexto">
+        <div class="boxContexto">
+          <div class="tituloBox">
+            <p>Sistemas de Saúde</p>
+          </div>
+          <div class="textoBox">
+            <p>
+              O sistema hospitalar é crucial para nossa sociedade e a tecnologia é amplamente
+              usada na saúde no Brasil. No entanto, 4% dos hospitais públicos não têm pré-atendimento
+              enquanto todos os hospitais particulares o possuem
+            </p>
+          </div>
+          <a href="#redirecionamentoSistema" id="botaoBox">Nosso Sistema</a>
+        </div>
+
+        <div class="boxContexto">
+          <div class="tituloBox">
+            <p>Pré atendimento</p>
+          </div>
+          <div class="textoBox">
+            <p>
+              Computadores na área de atendimento e totens de autoatendimento são essenciais para a triagem hospitalar.
+              Qualquer falha nesses sistemas comprometeria a capacidade do hospital em atender eficazmente.
+            </p>
+          </div>
+          <a href="#tituloNossaEquipe" id="botaoBoxMeio">Nossa Equipe</a>
+        </div>
+
+        <div class="boxContexto">
+          <div class="tituloBox">
+            <p>Solução</p>
+          </div>
+          <div class="textoBox solucao">
+            <p>
+              Sabendo da importância do funcionamento de todo o sistema tecnológico hospitalar, nós desenvolvemos uma
+              aplicação extremamente eficiente para monitorar todo o hardware de uma máquina computacional.
+            </p>
+          </div>
+          <a href="#tituloBeneficios" id="botaoBox">Benefícios</a>
+        </div>
+      </div>
+
+      <div class="divComoFunciona" id="redirecionamentoSistema">
+        <p>E COMO NOSSO SISTEMA FUNCIONA?</p>
+      </div>
+      <div class="divSubComoFunciona">
+        <p>ENTENDA COMO VAMOS RESOLVER SEU PROBLEMA</p>
+      </div>
+
+      <div class="paiBoxComoFunciona">
+        <div class="boxComoFunciona">
+          <img src="assets/img/iconHardware.png" id="imgComoFunciona" />
+          <p id="pComoFunciona">Monitoramento de Hardware</p>
+        </div>
+
+        <div class="boxComoFunciona">
+          <img src="./assets/img/iconDashboard.png" id="imgComoFunciona" />
+          <p id="pComoFunciona">Dashboards Interativas</p>
+        </div>
+
+        <div class="boxComoFunciona">
+          <img src="./assets/img/iconAlerta.png" id="imgComoFunciona" />
+          <p id="pComoFunciona">Avisos de Urgência</p>
+        </div>
+      </div>
+
+      <div class="paiBoxComoFunciona">
+        <div class="boxComoFunciona">
+          <img src="./assets/img/iconBancoDeDados.png" id="imgComoFunciona" />
+          <p id="pComoFunciona">Armazenamento de Dados</p>
+        </div>
+
+        <div class="boxComoFunciona">
+          <img src="./assets/img/iconHelpDesk.png" id="imgComoFunciona" />
+          <p id="pComoFunciona">Suporte ao Cliente</p>
+        </div>
+
+        <div class="boxComoFunciona">
+          <img src="./assets/img/iconAdministrativo.png" id="imgComoFunciona" />
+          <p id="pComoFunciona">Área Administrativa</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- fim do contexto -->
+
+  <!-- começo do beneficios -->
+  <div class="divPaiBeneficios">
+    <p id="tituloBeneficios">BENEFÍCIOS DO SISTEMA</p>
+    <p id="subTituloBeneficios">NOSSOS PONTOS FORTES</p>
+
+    <div class="boxPaiBeneficios">
+      <div class="boxBeneficios">
+        <img src="./assets/img/iconHospital.png" id="iconHospitalBeneficios" />
+        <div class="tituloBoxBeneficios">
+          <p>Agilidade no atendimento</p>
+        </div>
+        <div class="textoBoxBeneficios">
+          <p>
+            Nosso monitoramento assegura que as máquinas de atendimento não terão problemas de hardware, ajudando a
+            reduzir o pré-atendimento de 8 minutos para 36 segundos.
+          </p>
+        </div>
+      </div>
+
+      <div class="boxBeneficios">
+        <img src="./assets/img/iconDashboard.png" id="iconHospitalBeneficios" />
+        <div class="tituloBoxBeneficios">
+          <p>Dashboards interativas</p>
+        </div>
+        <div class="textoBoxBeneficios">
+          <p>
+            Usaremos os dados capturados para fornecer dashboards aos especialistas, permitindo que otimizem o
+            funcionamento de suas máquinas.
+          </p>
+        </div>
+      </div>
+
+      <div class="boxBeneficios">
+        <img src="./assets/img/inovacao (1).png" id="iconHospitalBeneficios" />
+        <div class="tituloBoxBeneficios">
+          <p>Inovação</p>
+        </div>
+        <div class="textoBoxBeneficios">
+          <p>
+            Forneceremos dados sobre as áreas mais movimentadas durante o horário de funcionamento, auxiliando o diretor
+            a tomar decisões estratégicas de investimento.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- fim do beneficios -->
+
+  <!-- começo da nossa equipe -->
+  <div class="divPaiNossaEquipe">
+    <p id="tituloNossaEquipe">CONHEÇA NOSSA EQUIPE</p>
+    <p id="subTituloNossaEquipe">
+      Conheça os profissionais que vão resolver seu problema!!!
+    </p>
+
+    <div class="boxPaiEquipe">
+      <img src="./assets/img/setaBrancaDireita.png" id="setaEquipeDireita" onclick="Proximo()" />
+
+      <div class="boxEquipe">
+        <img src="" class="imgEquipe" id="ImgCard1" />
+        <div class="divSubEquipe">
+          <p id="tituloFotoEquipe1"></p>
+          <p id="cargoFotoEquipe">Analista de Sistemas</p>
+        </div>
+      </div>
+
+      <div class="boxEquipe">
+        <img src="" class="imgEquipe" id="ImgCard2"/>
+        <div class="divSubEquipe">
+          <p id="tituloFotoEquipe2"></p>
+          <p id="cargoFotoEquipe">Analista de Sistemas</p>
+        </div>
+      </div>
+
+      <div class="boxEquipe">
+        <img src="" class="imgEquipe" id="ImgCard3"/>
+        <div class="divSubEquipe">
+          <p id="tituloFotoEquipe3" class="tituloEquipe"></p>
+          <p id="cargoFotoEquipe">Analista de Sistemas</p>
+        </div>
+      </div>
+
+      <img src="./assets/img/setaBrancaEsquerda.png" id="setaEquipeEsquerda" onclick="Proximo()" />
+    </div>
+  </div>
+  <!-- fim da nossa equioe -->
+      </div>
+    </div>
+    <!-- fim da nossa equioe -->
+
+    <!-- Começo do Plano -->
+    <div class="divPlanoPai">
+      <div class="divPlanoFilho">
+        <span class="tituloPlano">Nossos Planos de Assinatura</span>
+        <span class="textoPlano"
+          >Escolha o melhor plano que agrega a sua empresa e garanta a rentabilidade do seu negócio!</span
+        >
+        <div class="caixas">
+          <div class="boxPlanoLado">
+            <div class="divDegrade">
+              
+              <img
+                src="./assets/img/medalha-de-prata.png"
+                alt=""
+                class="iconPlanoLado"
+              />
+              <span class="nomePlanoLado">Plano PLus</span>
+            </div>
+            <div class="beneficiosPlanoLado">
+              <div class="beneficios">
+                <img
+                  src="./assets/img/checked.png"
+                  alt=""
+                  class="iconBeneficioLado"
+                />
+                <span class="txtBeneficioLado">1-15 Máquinas</span>
+              </div>
+              <div class="beneficios">
+                <img
+                  src="./assets/img/checked.png"
+                  alt=""
+                  class="iconBeneficioLado"
+                />
+                <span class="txtBeneficioLado">Inovação</span>
+              </div>
+              <div class="beneficios">
+                <img
+                  src="./assets/img/cross.png"
+                  alt=""
+                  class="iconBeneficioLado"
+                />
+                <span class="txtBeneficioLado">Insights</span>
+              </div>
+            </div>
+            <button onclick="btnPlanos()" class="btnPlanoLado">Contratar</button>
+          </div>
+          <div class="boxPlanoMeio">
+            <div class="divDegrade">
+              <img
+                src="./assets/img/medalha-de-ouro.png"
+                alt=""
+                class="iconPlano"
+              />
+              <span class="nomePlano">Plano Ultra</span>
+            </div>
+            <div class="beneficiosPlano">
+              <div class="beneficios">
+                <img
+                  src="./assets/img/checked.png"
+                  alt=""
+                  class="iconBeneficio"
+                />
+                <span class="txtBeneficio">Máquinas Ilimitadas</span>
+              </div>
+              <div class="beneficios">
+                <img
+                  src="./assets/img/checked.png"
+                  alt=""
+                  class="iconBeneficio"
+                />
+                <span class="txtBeneficio">Inovação</span>
+              </div>
+              <div class="beneficios">
+                <img
+                  src="./assets/img/checked.png"
+                  alt=""
+                  class="iconBeneficio"
+                />
+                <span class="txtBeneficio">Acesso Total</span>
+              </div>
+            </div>
+            <button onclick="btnPlanos()" class="btnPlano">Contratar</button>
+          </div>
+          <div class="boxPlanoLado">
+            <div class="divDegrade">
+              <img
+                src="./assets/img/medalha-de-bronze.png"
+                alt=""
+                class="iconPlanoLado"
+              />
+              <span class="nomePlanoLado">Plano Prime</span>
+            </div>
+            <div class="beneficiosPlanoLado">
+              <div class="beneficios">
+                <img
+                  src="./assets/img/checked.png"
+                  alt=""
+                  class="iconBeneficioLado"
+                />
+                <span class="txtBeneficioLado">1-10 Máquinas</span>
+              </div>
+              <div class="beneficios">
+                <img
+                  src="./assets/img/cross.png"
+                  alt=""
+                  class="iconBeneficioLado"
+                />
+                <span class="txtBeneficioLado">Inovação</span>
+              </div>
+              <div class="beneficios">
+                <img
+                  src="./assets/img/cross.png"
+                  alt=""
+                  class="iconBeneficioLado"
+                />
+                <span class="txtBeneficioLado">Insights</span>
+              </div>
+            </div>
+            <button onclick="btnPlanos()" class="btnPlanoLado">Contratar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Fim do Plano -->
+
+    <!-- começo do contato -->
+    <div class="divPaiContato" id="redirecionamentoContato">
+      <div class="divFilhoContato">
+
+        <div class="cimaContato">
+          <p id="tituloContato">COMO CONTRATAR NOSSO PLANOS ?</p>
+          <div class="esquerdaCimaContato">
+            <img id="imgContato" src="./assets/img/iconTelefoneBranco.png">
+            <p id="telefoneContato">(11) 9 9999-9999</p>
+          </div>
+        </div>
+
+        <div class="baixoContato">
+          <p id="subTituloContato">Entre em contato para conosco para assinar</p>
+          <div class="esquerdaBaixoContato">
+            <img id="imgContato" src="./assets/img/iconEmailBranco.png">
+            <p id="emailContato">healthtouch@jira.com</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- fim do contato -->
+
+  <!-- começo do rodapé -->
+  <div class="divPaiRodape">
+    <div class="divFilhoRodape">
+      <div class="esquerdaRodape">
+        <img src="./assets/img/logo_navbar.png" id="logoCabecalho" />
+        <p id="textoCabecalho">
+          Com o nosso sistema seu paciente vai ter o melhor atendimento já visto.
+        </p>
+        <img src="./assets/img/twitter.png" id="iconCabecalho" />
+        <img src="./assets/img/facebook.png" id="iconCabecalho" />
+        <img src="./assets/img/github.png" id="iconCabecalho" />
+        <img src="./assets/img/linkedin.png" id="iconCabecalho" />
+      </div>
+
+      <div class="meioRodape">
+        <p id="tituloMeioCabecalho">Acesso Rápido</p>
+        <a href="#tituloNossaEquipe" id="pMeioCabecalho">Equipe</a>
+        <a href="#redirecionamentoSistema" id="pMeioCabecalho">Nosso Sistema</a>
+        <a href="login.html" id="pMeioCabecalho">Login</a>
+      </div>
+
+      <div class="direitaRodape">
+        <p id="tituloDireitaCabecalho">Deixe o Seu E-mail para contato</p>
+        <div class="divDireitaCabecalho">
+          <p>example@email.com</p>
+        </div>
+        <button class="botaoDireitaCabecalho">Enviar</button>
+      </div>
+    </div>
+  </div>
+  <!-- fim do rodapé -->
+</body>
+
+</html>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
+<script>
+  var ListaNome = [
+  'Anthony',
+  'Davi',
+  'Gabriel Nunes',
+  'Gabriel Sanchez',
+  'Maria Paula',
+  'Yasmin'
+]
+var listaImg = [
+  `./assets/img/tonyv3.jpeg`,
+  `./assets/img/davi.jpeg`,
+  `./assets/img/nunes.jpeg`,
+  `./assets/img/sanchez.jpeg`,
+  `./assets/img/maria.jpeg`,
+  `./assets/img/yasmin.jpeg`
+]
+var PosiçãoInicial = 0
+
+Proximo()
+
+function Proximo() {
+  if (PosiçãoInicial == 0) {
+    tituloFotoEquipe1.innerHTML = ''
+    tituloFotoEquipe2.innerHTML = ''
+    tituloFotoEquipe3.innerHTML = ''
+    tituloFotoEquipe1.innerHTML += ListaNome[PosiçãoInicial]
+    tituloFotoEquipe2.innerHTML += ListaNome[PosiçãoInicial + 1]
+    tituloFotoEquipe3.innerHTML += ListaNome[PosiçãoInicial + 2]
+
+    ImgCard1.src = listaImg[PosiçãoInicial]
+    ImgCard2.src = listaImg[PosiçãoInicial + 1]
+    ImgCard3.src = listaImg[PosiçãoInicial + 2]
+
+    PosiçãoInicial = 3
+  } else {
+    tituloFotoEquipe1.innerHTML = ''
+    tituloFotoEquipe2.innerHTML = ''
+    tituloFotoEquipe3.innerHTML = ''
+    tituloFotoEquipe1.innerHTML += ListaNome[PosiçãoInicial]
+    tituloFotoEquipe2.innerHTML += ListaNome[PosiçãoInicial + 1]
+    tituloFotoEquipe3.innerHTML += ListaNome[PosiçãoInicial + 2]
+
+    ImgCard1.src = listaImg[PosiçãoInicial]
+    ImgCard2.src = listaImg[PosiçãoInicial + 1]
+    ImgCard3.src = listaImg[PosiçãoInicial + 2]
+    PosiçãoInicial = 0
+  }
+}
+
+function home() {
+  window.location = 'index.html'
+}
+
+function btnPlanos() {
+  Swal.fire('Entre em Contato Conosco')
+
+}
+
+function btnPlanos() {
+  Swal.fire('Entre em Contato Conosco')
+
+}
+</script>

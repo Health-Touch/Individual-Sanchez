@@ -1,0 +1,569 @@
+* {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.divPai {
+    display: flex;
+}
+
+/* começo do menu lateral*/
+.divPaiLateral {
+    background-color: #020F1F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 13vw;
+    height: 100vh;
+}
+
+.filhoLateral {
+    width: 10vw;
+    height: 96vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.divNomeEmpresa {
+    width: 9vw;
+    height: 5vh;
+    position: relative;
+    top: 2%;
+}
+
+#textoEmpresa {
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+#nomeEmpresa {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.divMainMenu {
+    width: 9vw;
+    height: 5vh;
+    position: relative;
+    top: 7%;
+}
+
+#pMainMenu {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.divPaiOpcoesMenu {
+    width: 100%;
+    height: 40vh;
+    position: relative;
+    top: 8%;
+}
+
+.divPaiOpcoesMenu a {
+    text-decoration: none;
+}
+
+
+.divHome {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 6.7vw;
+}
+
+#iconMenuLateralHome {
+    width: 2vw;
+    height: 4vh;
+}
+
+#pMenuLateral {
+    color: white;
+    font-size: 11px;
+    text-decoration: none;
+}
+
+.divEstatisticas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 8vw;
+    position: relative;
+    top: 5%;
+}
+
+#iconEstatiscasLateral {
+    width: 1.8vw;
+    height: 3.8vh;
+}
+
+.divEspaco {
+    width: 5vw;
+    height: 5vh;
+}
+
+.divDashboards {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 8.5vw;
+    position: relative;
+    top: 18%;
+}
+
+#iconDashboardsLateral {
+    width: 1.8vw;
+    height: 3.8vh;
+}
+
+.divComputador {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 7.5vw;
+    position: relative;
+    top: 3%;
+}
+
+#iconComputadorLateral {
+    width: 2vw;
+    height: 4.2vh;
+}
+
+.divCadastroComputador {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 7.5vw;
+    position: relative;
+    top: 8%;
+}
+
+#iconComputadorCadLateral {
+    width: 3vw;
+    height: 4vh;
+}
+
+.divAnaliseEquipe {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 7.2vw;
+    position: relative;
+    top: 13%;
+}
+
+#iconAnaliseEquipe {
+    width: 2vw;
+    height: 4vh;
+}
+
+.divCadastroEquipe {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 8.2vw;
+    position: relative;
+    top: 23%;
+}
+
+#iconCadastroEquipe {
+    width: 2vw;
+    height: 3.5vh;
+}
+
+.divHelp {
+    width: 9vw;
+    height: 5vh;
+    position: relative;
+    top: 20%;
+}
+
+.divPaiHelpMenu {
+    width: 9vw;
+    height: 5vh;
+    position: relative;
+    top: 20%;
+}
+
+#pHelp {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.divHelpDesk {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 7vw;
+    position: relative;
+    top: 5%;
+}
+
+#iconHelpDesk {
+    width: 2vw;
+    height: 4vh;
+}
+
+.divConfiguracoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 8.8vw;
+    position: relative;
+    top: 35%;
+}
+
+#iconConfiguracoes {
+    width: 2vw;
+    height: 4vh;
+}
+
+#logoMenuLateral {
+    width: 7vw;
+    height: 8vh;
+    position: relative;
+    top: 70%;
+}
+
+.divEspacoV2 {
+    background-color: rgba(255, 255, 255, 0.409);
+    width: 9vw;
+    height: 0.1vh;
+    position: relative;
+    top: 17%;
+
+}
+
+/* fim do menu lateral */
+
+/* começo da cabeçalho */
+.divPaiCabecalho {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.filhoCabecalho {
+    width: 80vw;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.direitaCabecalho {
+    width: 22vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.divPerfilCabecalho {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 14vw;
+    height: 7vh;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.textosIcon {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#tituloPerfil {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#cargoPerfil {
+    font-size: 12px;
+}
+
+.iconPerfilCabecalho {
+    width: 3vw;
+    height: 6vh;
+}
+
+.setaPerfilCabecalho {
+    width: 1vw;
+    height: 2vh;
+}
+
+.emailIconCabecalho {
+    width: 1.5vw;
+    height: 3vh;
+}
+
+.sinoIconCabecalho {
+    width: 1.5vw;
+    height:
+        3vh;
+}
+
+.esquerdaCabecalho {
+    width: 20vw;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.inputLogin {
+    /* border-radius: 15px; */
+    border: none;
+    height: 4.5vh;
+    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+    outline: none;
+    /* display: flex; */
+}
+
+/* .inputLogin::placeholder {
+    font-size: 11px;
+    position: relative;
+    top: -5%;
+    left: 5%;
+} */
+
+.lupaBusca {
+    width: 2vw;
+    height: 3.5vh;
+    /* position: relative;
+    right: 13%; */
+}
+
+.fundoInputPesquisa {
+    width: 36vh;
+    height: 5vh;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* fim do cabeçalho */
+
+/* começo do conteudo */
+.divPaiConteudo {
+    width: 100%;
+    height: 100%;
+    background-image: url(../assets/img/imgConfig.jpg);
+    background-size: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.AtualizarImg {
+    width: 25%;
+    height: 60%;
+    background-color: #fff;
+    border-radius: 0.625rem;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.AtualizarImg h1{
+    font-size: 20px;
+}
+
+.AtualizarImg>img {
+    width: 50%;
+    height: 40%;
+    padding: 2vh;
+    border-radius: 50%;
+}
+
+.AtualizarImg>h1 {
+    width: 100%;
+    height: 12%;
+    /* background-color: #01F; */
+    text-align: center;
+    /* border-radius: 6.3125rem; */
+}
+
+.AtualizarImg>h3 {
+    width: 100%;
+    height: 8%;
+    /* background-color: #020F; */
+    text-align: center;
+    /* border-radius: 6.3125rem; */
+}
+
+.AtualizarDados {
+    width: 60%;
+    height: 50%;
+    border-radius: 0.625rem;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divAtualizarDadosLE {
+    width: 50%;
+    height: 90%;
+    /* background: yellow; */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.divAtualizarDadosLE h2, .divAtualizarDadosLD h2 {
+    position: relative;
+    left: 6vh;
+}
+
+.divAtualizarDadosLD {
+    width: 50%;
+    height: 90%;
+    /* background: red; */
+}
+
+.divFormulario {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.divFormulario2 {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    top: 8%;
+}
+
+.Btn_atualizar2 {
+    width: 50%;
+    height: 6vh;
+    flex-shrink: 0;
+    border-radius: 1.25rem;
+    background-color: #020F1F;
+    color: white;
+    border: none;
+    position: relative;
+    left: 6.5vh;
+    top: 1%;
+    cursor: pointer;
+}
+
+.divFormulario p{
+    font-size: 13px;
+}
+
+.divFormulario2 p{
+    font-size: 13px;
+}
+
+
+.Campo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#FotoUser {
+    width: 13vw;
+    height: 30vh;
+    position: relative;
+    top: -7%;
+}
+
+#idNomeFoto {
+    font-size: 19px;
+    position: relative;
+    top: -3%;
+}
+
+#cargoFoto {
+    font-size: 19px;
+    position: relative;
+    top: -3%;
+}
+
+.Campo>p {
+    width: 25%;
+    text-align: start;
+    color: rgba(0, 0, 0, 0.50);
+}
+
+.Campo>input {
+    width: 55%;
+    height: 4vh;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border: none;
+    outline: none;
+}
+
+.Campo>input::placeholder {
+        font-size: 11px;
+        position: relative;
+        top: -5%;
+        left: 5%;
+}
+
+.TitFormulario {
+    color: #26ABA7;
+}
+
+#h2Titulo {
+    position: relative;
+    left: -20%;
+    font-size: 19px;
+    top: -3%;
+}
+
+.Btn_atualizar {
+    width: 50%;
+    height: 6vh;
+    flex-shrink: 0;
+    border-radius: 1.25rem;
+    background-color: #020F1F;
+    color: white;
+    border: none;
+    position: relative;
+    left: 6.5vh;
+    cursor: pointer;
+}
+
+/* .Btn_LE{
+    position: relative;
+    left: 3%;
+} */
+
+.divAtualizarDadosLD{
+    width: 50%;
+    height: 90%;
+    /* background: yellow; */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* fim do conteudo */
