@@ -13,7 +13,7 @@
 </head>
 <!-- <body onload="validarSessao(), validarSetor(), validarStatusUsb(), cpuMensal(), ramMensal(), discoMensal(), insightCpu(), insightRam(), insightDisco(), analiseGeral(), exibirAlertas()"> -->
 
-<body >
+<body>
     <div class="divPai">
         <!-- inicio menu lateral -->
         <div class="divPaiLateral">
@@ -168,20 +168,51 @@
                                     <span class="txtUso">Total de janelas mensais</span>
                                     <img src="assets/img/cpu.png" alt="" class="imgCard">
                                 </div>
-                                <span class="infoCard"><span id="usoCpuMensal">60</span> %</span>
+                                <span class="infoCard"><span id="janelaMensal">
+                                    <select id="escolhaMesJanela">
+                                        <option value="" disabled selected hidden>Selecione o Mês</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="5">4</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                    <button onclick="janelaMes()"> Ver</button></span></span>
+                                </span></span>
                             </div>
-                            
+
                         </div>
 
                         <div class="cardPai">
                             <div class="cardFilho">
                                 <div class="cardTexto">
-                                    <span class="txtUso">Maior % do Uso mensal  de RAM</span>
+                                    <span class="txtUso">Maior % do Uso mensal de RAM</span>
                                     <img src="assets/img/ram.png" alt="" class="imgCard">
                                 </div>
-                                <span class="infoCard"><span id="usoMensalRam"></span> %</span>
+                                <span class="infoCard"><span id="usoMensalRam">
+                                        <select id="escolhaMesRam">
+                                            <option value="" disabled selected hidden>Selecione o Mês</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="5">4</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                        </select>
+                                        <button onclick="mesRam()"> Ver</button></span></span>
                             </div>
-                           
+
                         </div>
 
                         <div class="cardPai">
@@ -190,9 +221,10 @@
                                     <span class="txtUso">% do Uso do Ram</span>
                                     <img src="assets/img/drive-de-disco-rigido.png" alt="" class="imgCard">
                                 </div>
-                                <span class="infoCard"><span id="usoRam"></span> %</span>
+                                <span class="infoCard"><span id="usoRam">
+                                    </span></span>
                             </div>
-                          
+
                         </div>
                     </div>
                     <div class="paiGrafico">
@@ -201,9 +233,9 @@
                                 <canvas id="myChartRam" class="graficoTamanho"></canvas>
                             </div>
                         </div>
-    
+
                         <div class="HistAvisos">
-    
+
                         </div>
                     </div>
 
@@ -222,7 +254,7 @@
 
                     </div>
 
-                   
+
                 </div>
             </div>
             <!-- fim conteudo pagina -->
@@ -240,7 +272,7 @@
     window.onload = obterDadosGraficoRam();
     window.onload = atualizarFeedJanela();
     window.onload = atualizarFeedRam();
-    window.onload = atualizarFeedMensalRam();
+
 
     function obterDadosGraficoRam(idMaquina) {
         var idMaquina = sessionStorage.ID_MAQUINA
@@ -283,7 +315,7 @@
                 label: 'Uso de RAM',
                 data: [],
                 fill: true,
-            // backgroundColor: `rgb(79,179,148)`,
+                // backgroundColor: `rgb(79,179,148)`,
                 borderColor: `rgb(17, 94, 210)`,
                 borderWidth: 5,
                 tension: 0.5,
@@ -393,7 +425,7 @@
             });
 
     }
-// trazer janelas
+    // trazer janelas
     function atualizarFeedJanela() {
         var idMaquina = sessionStorage.ID_MAQUINA
         fetch(`/avisos/listarJanela/${idMaquina}`).then(function (resposta) {
@@ -410,7 +442,7 @@
                     console.log("Dados recebidos: ", JSON.stringify(resposta));
 
                     var feed = document.getElementById("dados");
-                    
+
                     for (let i = 0; i < resposta.length; i++) {
                         var publicacao = resposta[i];
                         feed.innerHTML += `<div class="Dados">
@@ -429,7 +461,42 @@
         });
     }
 
-// trazer ram
+    //mensal Janela
+    function janelaMes() {
+        var escolhaMes = escolhaMesJanela.value
+        var idMaquina = sessionStorage.ID_MAQUINA
+        fetch(`/avisos/janelaMes/${idMaquina}/${escolhaMes}`).then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var feed = document.getElementById("feed_container");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(mensagem);
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var feed = document.getElementById("janelaMensal");
+
+                    for (let i = 0; i < resposta.length; i++) {
+                        var publicacao = resposta[i];
+                        feed.innerHTML = ` ${publicacao.dados}`
+                    }
+
+                    // finalizarAguardar();
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+            finalizarAguardar();
+        });
+    }
+
+    // trazer ram
     function atualizarFeedRam() {
         var idMaquina = sessionStorage.ID_MAQUINA
         fetch(`/avisos/listarRam/${idMaquina}`).then(function (resposta) {
@@ -447,11 +514,11 @@
                     console.log("Dados recebidos: ", JSON.stringify(resposta));
 
                     var feed = document.getElementById("usoRam");
-                    
+
                     for (let i = 0; i < resposta.length; i++) {
                         var publicacao = resposta[i];
                         feed.innerHTML += `
-                                 ${publicacao.porcentagem}  
+                                 ${publicacao.porcentagem}%
                             `
                     }
 
@@ -468,9 +535,10 @@
 
     // atualizarFeedMensalRam
 
-    function atualizarFeedMensalRam() {
+    function mesRam() {
+        var escolha = escolhaMesRam.value
         var idMaquina = sessionStorage.ID_MAQUINA
-        fetch(`/avisos/listarMensalRam/${idMaquina}`).then(function (resposta) {
+        fetch(`/avisos/listarMensalRam/${idMaquina}/${escolha}`).then(function (resposta) {
             console.log("entrei cria")
             if (resposta.ok) {
                 if (resposta.status == 204) {
@@ -485,11 +553,11 @@
                     console.log("Dados recebidos: ", JSON.stringify(resposta));
 
                     var feed = document.getElementById("usoMensalRam");
-                    
+
                     for (let i = 0; i < resposta.length; i++) {
                         var publicacao = resposta[i];
-                        feed.innerHTML += `
-                                 ${publicacao.porcentagem}  
+                        feed.innerHTML = `
+                                 ${publicacao.porcentagem}%
                             `
                     }
 
@@ -503,4 +571,7 @@
             // finalizarAguardar();
         });
     }
+
+
+
 </script>

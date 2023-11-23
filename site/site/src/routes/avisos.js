@@ -23,10 +23,14 @@ router.get("/listarJanela/:idMaquina", function (req, res) {
     avisoController.listarJanela(req, res);
 });
 
+router.get("/janelaMes/:idMaquina/:escolhaMes", function (req, res) {
+    avisoController.janelaMes(req, res);
+});
+
 router.get("/listarRam/:idMaquina", function (req, res) {
     avisoController.listarRam(req, res);
 });
-router.get("/listarMensalRam/:idMaquina", function (req, res) {
+router.get("/listarMensalRam/:idMaquina/:escolha", function (req, res) {
     avisoController.listarMensalRam(req, res);
 });
 router.get("/listarSetor/:idMaquina", function (req, res) {

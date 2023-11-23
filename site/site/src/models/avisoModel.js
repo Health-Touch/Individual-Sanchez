@@ -77,6 +77,19 @@ function listarJanela(idMaquina) {
     return database.executar(instrucao);
 }
 
+function janelaMes(idMaquina, escolhaMes) {
+    console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function janelaMes()");
+    var instrucao = `
+    SELECT date_format(dtJanela, '%m') as mes, count(tituloJanela) as dados
+    FROM Janela
+    JOIN Maquina ON fkMaquina = ${idMaquina}
+    WHERE MONTH(dtJanela) = ${escolhaMes}
+    GROUP BY date_format(dtJanela, '%m');
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 function listarRam(idMaquina) {
     console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarRam()");
     var instrucao = `
@@ -89,12 +102,15 @@ function listarRam(idMaquina) {
     return database.executar(instrucao);
 }
 
-function listarMensalRam(idMaquina) {
+function listarMensalRam(idMaquina, escolha) {
     console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarMensalRam()");
     var instrucao = `
-    SELECT max(porcentagem) as porcentagem FROM Monitoramento join Maquina on fkMaquina = idMaquina
-ORDER BY idMonitoramento DESC
-LIMIT 30 
+    SELECT date_format(dataHora, '%m') as mes, max(porcentagem) as porcentagem
+FROM Monitoramento
+JOIN Maquina ON fkMaquina = ${idMaquina}
+WHERE MONTH(dataHora) = ${escolha}
+ and  fkComponente = 3  
+GROUP BY date_format(dataHora, '%m');
 ;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -189,6 +205,7 @@ module.exports = {
     verificarSetor,
     listarUsb,
     listarJanela,
+    janelaMes,
     listarRam,
     listarMensalRam,
     listarSetor,

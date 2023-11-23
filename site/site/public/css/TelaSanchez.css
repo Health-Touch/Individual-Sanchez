@@ -670,7 +670,7 @@
 
 .DivCampos{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-direction: column;
     position: relative;
     top: 9%;
@@ -686,13 +686,13 @@
 #campoId{
     position: relative;
     left: 10%;
-    width: 7vw;
+    width: 4vw;
 }
 
 #campoTitulo{
     position: relative;
-    left: 30%;
-    width: 20vw;
+    left: 15%;
+    width: 25vw;
 }
 .campo p{
     color: rgb(80, 78, 78);
