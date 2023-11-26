@@ -1,7 +1,10 @@
+
 import com.github.britooo.looca.api.core.Looca
+import com.github.britooo.looca.api.group.janelas.Janela
 import org.springframework.jdbc.core.JdbcTemplate
 import java.time.LocalDateTime
-import javax.swing.JOptionPane
+
+
 
 class Repositorio {
 
@@ -15,126 +18,158 @@ class Repositorio {
     }
 
 
-    fun cadastrarjanela(janela: Janela){
+    fun cadastrarJanela(novaJanela: MutableList<Janela>?, id_maquina: Int, fk_empresa: Int) {
+        val janelasNoBanco = jdbcTemplate.queryForList(
+            "SELECT tituloJanela FROM Janela where fkMaquina = $id_maquina and fkEmpresa = $fk_empresa",
+            String::class.java
+        )
 
-        janelas.janelas.forEachIndexed { p, janela ->
-            campoJanela.nomeJanela = janela.titulo
-            campoJanela.id = janela.janelaId
-            campoJanela.dtJanela = LocalDateTime.now()
+        val janelasListadas = novaJanela?.filter { it.titulo != null && it.titulo.isNotBlank() }?.map { it.titulo }
 
+        novaJanela?.forEach { janela ->
             if (janela.titulo != null && janela.titulo.isNotBlank()) {
-                println(
-                    """
-            janela ${p + 1}
-            Id: ${janela.janelaId}
-            Titulo: ${janela.titulo}
-        """.trimIndent())
+                val janelaExisteNoBanco = janelasNoBanco.contains(janela.titulo)
 
-                jdbcTemplate.update("""
-            insert into Janela(pidJanela, tituloJanela, dtJanela, fkMaquina, fkEmpresa, fkPlanoEmpresa, fkTipoMaquina) values
-           ('${campoJanela.id}', '${campoJanela.nomeJanela}', '${campoJanela.dtJanela}', ${campoJanela.fkMaquina},  ${campoJanela.fkEmpresa},  ${campoJanela.fkPlanoEmpresa},  ${campoJanela.fkTipoMaquina})
-        """.trimIndent())
+                if (janelaExisteNoBanco) {
+                    // A janela existe no banco, atualize-a definindo status_abertura como verdadeiro.
+                    jdbcTemplate.update(
+                        """
+                UPDATE Janela
+                SET dtJanela = ?,
+                    statusJanela = ?
+                WHERE tituloJanela = ? AND fkMaquina = $id_maquina AND fkEmpresa = $fk_empresa
+                """,
+                        LocalDateTime.now(),
+                        true,
+                        janela.titulo
+                    )
+                } else {
+                    // A janela não existe no banco, insira-a com status_abertura como verdadeiro.
+                    jdbcTemplate.update(
+                        """
+                INSERT INTO Janela (pidJanela, titulojanela, dtJanela, statusjanela, fkMaquina, fkEmpresa, fkPlanoEmpresa, fkTipoMaquina)
+                VALUES (?, ?, ?, ?, $id_maquina, $fk_empresa, ${buscarfkPlanoEmpresa(id_maquina)}, ${buscarfkTipoMaquina(id_maquina)})
+                """,
+                        janela.pid,
+                        janela.titulo,
+                        LocalDateTime.now(),
+                        true
+                    )
+                }
+            }
+        }
+
+        if (janelasListadas != null && janelasListadas.isNotEmpty()) {
+            val placeholders = janelasListadas.map { "?" }.joinToString(", ")
+            val updateQuery = "UPDATE Janela SET statusJanela = ? WHERE tituloJanela NOT IN ($placeholders)"
+            val params = arrayOf(false, *janelasListadas.toTypedArray())
+            val queryJanela = jdbcTemplate.update(updateQuery, *params)
+            println("$queryJanela registros atualizados na tabela de janelas")
+        }
+
+    }
+
+    fun validarJanela(nome_janela: String, id_maquina: Int, fk_empresa: Int): Boolean {
+        val queryValidacao = jdbcTemplate.queryForObject(
+            "SELECT count(*) FROM janela WHERE tituloJanela = ? and fkMaquina = $id_maquina and fkEmpresa = $fk_empresa",
+            Int::class.java,
+            nome_janela
+        )
+        return queryValidacao > 0
+    }
+    fun capturarDadosJ(looca: Looca): MutableList<Janela>? {
+        val janela = looca.grupoDeJanelas
+        var janelasVisiveis = janela.janelasVisiveis
+
+        return janelasVisiveis
+    }
+
+
+        fun buscaridMaquina(id_maquina: Int) {
+
+
+            var idMaquina = jdbcTemplate.queryForObject(
+                """
+                 select idMaquina from maquina where idMaquina = ${id_maquina};
+                """, Int::class.java
+            );
+
+            if (idMaquina != null) {
+                campoJanela.fkMaquina = idMaquina
             }
 
 
-
-
-
-
-
         }
 
-
-    }
-
-    fun buscaridMaquina(id: Int){
+        fun buscarfkEmpresa(email: String, senha: String): Int {
 
 
-        var idMaquina=  jdbcTemplate.queryForObject(
-            """
-                 select idMaquina from maquina where idMaquina = ${id};
+            var fkEmpresa = jdbcTemplate.queryForObject(
+                """
+                 select fkEmpresa from Colaborador where (email = '${email}' and senha = '${senha}');
                 """, Int::class.java
-        );
+            );
 
-        if (idMaquina != null) {
-            campoJanela.fkMaquina =idMaquina
+            if (fkEmpresa != null) {
+                campoJanela.fkEmpresa = fkEmpresa
+            }
+            return fkEmpresa
         }
 
-
-    }
-
-    fun buscarfkEmpresa(id: Int){
+        fun buscarfkTipoMaquina(id_maquina: Int): Int {
 
 
-
-        var fkEmpresa=  jdbcTemplate.queryForObject(
-            """
-                 select fkEmpresa from maquina where idMaquina = ${id};
+            var fkTipoMaquina = jdbcTemplate.queryForObject(
+                """
+                 select fkTipoMaquina from maquina where idMaquina = ${id_maquina};
                 """, Int::class.java
-        );
+            );
 
-        if (fkEmpresa != null) {
-            campoJanela.fkEmpresa =fkEmpresa
+            if (fkTipoMaquina != null) {
+                campoJanela.fkTipoMaquina = fkTipoMaquina
+            }
+            return fkTipoMaquina
         }
-    }
 
-    fun buscarfkTipoMaquina(id: Int){
+        fun buscarfkPlanoEmpresa(id_maquina: Int): Int {
 
 
-        var fkTipoMaquina=  jdbcTemplate.queryForObject(
-            """
-                 select fkTipoMaquina from maquina where idMaquina = ${id};
+            var fkPlanoEmpresa = jdbcTemplate.queryForObject(
+                """
+                 select fkPlanoEmpresa from maquina where idMaquina = ${id_maquina};
                 """, Int::class.java
-        );
+            );
 
-        if (fkTipoMaquina != null) {
-            campoJanela.fkTipoMaquina = fkTipoMaquina
+            if (fkPlanoEmpresa != null) {
+                campoJanela.fkPlanoEmpresa = fkPlanoEmpresa
+            }
+            return  fkPlanoEmpresa
         }
-    }
-
-    fun buscarfkPlanoEmpresa(id: Int){
 
 
-        var fkPlanoEmpresa=  jdbcTemplate.queryForObject(
-            """
-                 select fkPlanoEmpresa from maquina where idMaquina = ${id};
-                """, Int::class.java
-        );
+        fun verificarColaborador(email: String, senha: String): Int? {
 
-        if (fkPlanoEmpresa != null) {
-            campoJanela.fkPlanoEmpresa = fkPlanoEmpresa
-        }
-    }
-
-
-
-    fun verificarColaborador(email: String, senha: String) : Int?{
-
-        val colaborador = jdbcTemplate.queryForObject(
-            """
+            val colaborador = jdbcTemplate.queryForObject(
+                """
                   select count(idColaborador) from Colaborador where email = '${email}' and senha = '${senha}';
                 """, Int::class.java
-        );
+            );
 
-        return colaborador
-    }
-
-
+            return colaborador
+        }
 
 
-
-    fun validarMaquina(id: Int): Int? {
-
+        fun validarMaquina(id_maquina: Int): Int? {
 
 
-        val maquina=  jdbcTemplate.queryForObject(
-            """
-                 select count(idMaquina) from maquina where IdMaquina = '${id}';
+            val maquina = jdbcTemplate.queryForObject(
+                """
+                 select count(idMaquina) from maquina where IdMaquina = '${id_maquina}';
                 """, Int::class.java
-        );
+            );
 
-        return maquina
+            return maquina
+
+        }
 
     }
-
-}

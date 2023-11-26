@@ -264,6 +264,7 @@ truncate table Janela;
 insert into Janela values
 (null, 3232323, "fajosfnasjnfjaf", "2023-12-20 00:55:20", 1,1,1,1),
 (null, 1212414, "asfasfasfas", "2023-12-20 00:55:20", 1,1,1,1),
+(null, 4574454, "ansdoasnda", "2023-12-20 00:55:20", 1,1,1,1),
 (null, 4574454, "gdfwefwefwe", "2023-12-20 00:55:20", 1,1,1,1);
 
 insert into Janela values
@@ -274,17 +275,11 @@ insert into Janela values
 
 SELECT fkEmpresa FROM Colaborador WHERE email = "caramico@gmail.com" AND senha = "123123"; 
 
-SELECT SUM(tituloJanela) AS total_dados
-FROM Janela join Maquina on idMaquina = fkMaquina  
-WHERE dtJanela >= CURDATE() - INTERVAL 30 DAY AND dtJanela <= CURDATE() and fkMaquina = 1 ;
-
-select date_format(dtJanela, '%m') as mes, count(*) as dados  from Janela join Maquina where fkMaquina = idMaquina group by date_format(dtJanela, '%m');
-
-SELECT sum(tituloJanela) as janelasMes
-FROM Janela
-JOIN Maquina ON idMaquina = fkMaquina
-WHERE dtJanela >= CURDATE() - INTERVAL 30 DAY AND dtJanela <= CURDATE() AND fkMaquina = 1;
-
+SELECT count(tituloJanela) as janelaMensal
+FROM Janela where fkMaquina = 1 and
+ MONTH(dtjanela) = MONTH((SELECT MAX(dtjanela) FROM Janela))
+  AND YEAR(dtjanela) = YEAR((SELECT MAX(dtjanela) FROM Janela));
+  
 SELECT date_format(dtJanela, '%m') as mes, count(tituloJanela) as dados
 FROM Janela
 JOIN Maquina ON fkMaquina = idMaquina
@@ -316,8 +311,40 @@ fkTipoMaquina int,
 constraint fk_tipo_maquina_analise_toten foreign key(fkTipoMaquina) references TipoMaquina(idTipoMaquina),
 constraint pk_composta_analise_toten primary key (idAnaliseToten,fkMaquina, fkEmpresa,fkPlanoEmpresa,fkTipoMaquina)
 );
-
+truncate table AnaliseToten;
 select * from AnaliseToten;
+select * from Maquina;
+
+SELECT max(nomeBotao) as setor
+FROM analiseToten where  
+ MONTH(dataHora) = MONTH((SELECT MAX(dataHora) FROM analiseToten))
+  AND YEAR(dataHora) = YEAR((SELECT MAX(dataHora) FROM analiseToten));
+  
+  SELECT nomeBotao, COUNT(nomeBotao) AS qtdOcorrencias
+FROM analiseToten
+WHERE MONTH(dataHora) = MONTH((SELECT MAX(dataHora) FROM analiseToten))
+  AND YEAR(dataHora) = YEAR((SELECT MAX(dataHora) FROM analiseToten))
+GROUP BY nomeBotao
+ORDER BY COUNT(nomeBotao) DESC
+LIMIT 1;
+
+
+
+select nomeBotao, count(nomeBotao) as opcoes from AnaliseToten where fkMaquina = 2 group by nomeBotao;
+
+insert into AnaliseToten values
+(null, "Dentista", "2023-12-24", 2,1,1,2),
+(null, "Clinico Gera", "2023-12-24", 2,1,1,2),
+(null, "Dentista", "2023-12-24", 2,1,1,2),
+(null, "oftalmologista", "2023-12-24", 2,1,1,2),
+(null," Dentista", "2023-12-24", 2,1,1,2);
+
+insert into AnaliseToten values
+(null, "Dentista", "2023-11-24", 1,1,1,2),
+(null, "Clinico Gera", "2023-11-24", 1,1,1,2),
+(null, "Dentista", "2023-11-24", 1,1,1,2),
+(null, "oftalmologista", "2023-11-24", 1,1,1,2),
+(null," Dentista", "2023-11-24", 1,1,1,2);
 
 -- Componetes --
 
@@ -367,17 +394,17 @@ constraint fk_empresa_monitoramento  foreign key(fkEmpresaMaquina) references Ma
 constraint pk_composta_monitoramnto primary key (idMonitoramento,fkComponente,fkMaquina,  fkPlanoEmpresa, fkTipoMaquina, fkEmpresaMaquina)
 );
 insert into Monitoramento values
-(null, 55.44, '2020-09-14 10:18:17', 3, 1,1,1,1),
-(null, 40.44, '2020-09-14 12:18:17', 3, 1,1,1,1),
-(null, 30.44, '2020-09-14 13:18:17', 3, 1,1,1,1),
-(null, 70.44, '2020-09-14 15:18:17', 3, 1,1,1,1),
-(null, 90.44, '2020-09-14 10:18:17', 3, 1,1,1,1);
+(null, 55.44, '2020-09-14 20:18:17', 3, 1,1,1,1),
+(null, 40.44, '2020-09-14 22:18:17', 3, 1,1,1,1),
+(null, 30.44, '2020-09-14 23:18:17', 3, 1,1,1,1),
+(null, 70.44, '2020-09-14 23:18:17', 3, 1,1,1,1),
+(null, 90.44, '2020-09-14 23:18:17', 3, 1,1,1,1);
 insert into Monitoramento values
-(null, 45.44, '2020-09-14 10:18:17', 2, 1,1,1,1),
-(null, 30.44, '2020-09-14 12:18:17', 2, 1,1,1,1),
-(null, 20.44, '2020-09-14 13:18:17', 2, 1,1,1,1),
-(null, 30.44, '2020-09-14 15:18:17', 2, 1,1,1,1),
-(null, 20.44, '2020-09-14 10:18:17', 2, 1,1,1,1);
+(null, 45.44, '2020-11-14 20:18:17', 2, 1,1,1,1),
+(null, 30.44, '2020-11-14 22:18:17', 2, 1,1,1,1),
+(null, 20.44, '2020-11-14 23:18:17', 2, 1,1,1,1),
+(null, 30.44, '2020-11-14 23:18:17', 2, 1,1,1,1),
+(null, 20.44, '2020-11-14 23:18:17', 2, 1,1,1,1);
  select * from Monitoramento;
 SELECT date_format(dataHora, '%m') as mes, max(porcentagem) as porcentagem
 FROM Monitoramento
@@ -386,16 +413,18 @@ WHERE MONTH(dataHora) = 11
  and  fkComponente = 3  
 GROUP BY date_format(dataHora, '%m');
 
+SELECT max(porcentagem) as porcentagem
+FROM Monitoramento where fkMaquina = 1 and
+fkComponente = 3 and
+ MONTH(dataHora) = MONTH((SELECT MAX(dataHora) FROM Monitoramento))
+  AND YEAR(dataHora) = YEAR((SELECT MAX(dataHora) FROM Monitoramento));
+
 
 
 
 truncate table Monitoramento;
 
-select * from Monitoramento;
-SELECT max(porcentagem) as porcentagem FROM Monitoramento join Maquina on fkMaquina = idMaquina
-ORDER BY idMonitoramento DESC
-LIMIT 30 
-;
+
 
 
 

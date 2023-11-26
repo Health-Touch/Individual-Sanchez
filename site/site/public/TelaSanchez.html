@@ -152,91 +152,72 @@
                         <span class="numComputador">Setor <span id="idSala">1</span></span>
                     </div>
                     <div class="kpeis">
-                        <div class="cardPai">
+                        <div class="cardPai1">
                             <div class="cardFilho">
                                 <div class="cardTexto">
                                     <span class="txtUso">Total de janelas ativas</span>
                                     <img src="assets/img/usb.png" alt="" class="imgCard">
                                 </div>
-                                <span class="infoCard" id="statusUsb">Inativo</span>
+                                <span class="infoCard" id="statusjanela"></span>
                             </div>
                         </div>
 
-                        <div class="cardPai">
+                        <div class="cardPai2">
                             <div class="cardFilho">
                                 <div class="cardTexto">
                                     <span class="txtUso">Total de janelas mensais</span>
                                     <img src="assets/img/cpu.png" alt="" class="imgCard">
                                 </div>
-                                <span class="infoCard"><span id="janelaMensal">
-                                    <select id="escolhaMesJanela">
-                                        <option value="" disabled selected hidden>Selecione o Mês</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="5">4</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                        <option value="12">12</option>
-                                    </select>
-                                    <button onclick="janelaMes()"> Ver</button></span></span>
-                                </span></span>
+                                <span class="infoCard"><span id="janelaMensal"></span></span>
                             </div>
 
                         </div>
 
-                        <div class="cardPai">
+                        <div class="cardPai3">
                             <div class="cardFilho">
                                 <div class="cardTexto">
                                     <span class="txtUso">Maior % do Uso mensal de RAM</span>
                                     <img src="assets/img/ram.png" alt="" class="imgCard">
                                 </div>
-                                <span class="infoCard"><span id="usoMensalRam">
-                                        <select id="escolhaMesRam">
-                                            <option value="" disabled selected hidden>Selecione o Mês</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="5">4</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                        </select>
-                                        <button onclick="mesRam()"> Ver</button></span></span>
+                                <span class="infoCard"><span id="usoMensalRam"></span></span>
                             </div>
 
                         </div>
 
-                        <div class="cardPai">
+                        <div class="cardPai4">
                             <div class="cardFilho">
                                 <div class="cardTexto">
                                     <span class="txtUso">% do Uso do Ram</span>
                                     <img src="assets/img/drive-de-disco-rigido.png" alt="" class="imgCard">
                                 </div>
+
                                 <span class="infoCard"><span id="usoRam">
                                     </span></span>
+                                <div class="alertaRow">
+                                    <p id="alerta"></p> <img src="assets/img/lupa.png" alt="" class="imgCardLupa"
+                                        onclick="mostrarModal()">
+                                </div>
                             </div>
 
+                        </div>
+                    </div>
+
+                    <div id="modal">
+                        <div id="modal-content">
+                            <p>Como funcionam Alertas?</p>
+                           <p><span class="verde" >Tudo Ok</span>: A % da ram está de 0 até 50</p> 
+                           <p><span class="amarelo">Atenção</span>: A % da ram está entre 65 e 70</p> 
+                           <p><span class="vermelho">Ram Muito Alta</span>: A % da ram está maior que 70</p>
+                           <button onclick="fecharModal()" class="botaoModal">OK</button> 
                         </div>
                     </div>
                     <div class="paiGrafico">
                         <div class="GraficoRam">
                             <div class="grafico">
-                                <canvas id="myChartRam" class="graficoTamanho"></canvas>
+                                <canvas id="myChartRam" ></canvas>
                             </div>
                         </div>
 
-                        <div class="HistAvisos">
-
-                        </div>
                     </div>
 
                     <div class="Histjanelas">
@@ -272,7 +253,21 @@
     window.onload = obterDadosGraficoRam();
     window.onload = atualizarFeedJanela();
     window.onload = atualizarFeedRam();
+    window.onload = janelaMes();
+    window.onload = mesRam();
+    window.onload = janelaAtivas();
 
+  
+
+    function mostrarModal() {
+        document.getElementById('modal').style.display = 'flex';
+    }
+
+    function fecharModal() {
+        document.getElementById('modal').style.display = 'none';
+    }
+
+// Chart.default.width
 
     function obterDadosGraficoRam(idMaquina) {
         var idMaquina = sessionStorage.ID_MAQUINA
@@ -330,7 +325,7 @@
         console.log(resposta)
 
         // Inserindo valores recebidos em estrutura para plotar o gráfico
-        for (i = 0; i < resposta.length; i++) {
+        for (i = resposta.length - 1; i >= 0; i--) {
             var registro = resposta[i];
             labels.push(registro.horario);
             dados.datasets[0].data.push(registro.porcentagem);
@@ -463,9 +458,8 @@
 
     //mensal Janela
     function janelaMes() {
-        var escolhaMes = escolhaMesJanela.value
         var idMaquina = sessionStorage.ID_MAQUINA
-        fetch(`/avisos/janelaMes/${idMaquina}/${escolhaMes}`).then(function (resposta) {
+        fetch(`/avisos/janelaMes/${idMaquina}`).then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
                     var feed = document.getElementById("feed_container");
@@ -482,7 +476,40 @@
 
                     for (let i = 0; i < resposta.length; i++) {
                         var publicacao = resposta[i];
-                        feed.innerHTML = ` ${publicacao.dados}`
+                        feed.innerHTML += ` ${publicacao.janelaMensal} janelas`
+                    }
+
+                    // finalizarAguardar();
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+            finalizarAguardar();
+        });
+    }
+
+    function janelaAtivas() {
+        var idMaquina = sessionStorage.ID_MAQUINA
+        fetch(`/avisos/janelaAtivas/${idMaquina}`).then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var feed = document.getElementById("feed_container");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(mensagem);
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var feed = document.getElementById("statusjanela");
+
+                    for (let i = 0; i < resposta.length; i++) {
+                        var publicacao = resposta[i];
+                        feed.innerHTML += ` ${publicacao.janelasAtivas} janelas`
                     }
 
                     // finalizarAguardar();
@@ -522,6 +549,18 @@
                             `
                     }
 
+                    if (publicacao.porcentagem < 70) {
+                        alerta.innerHTML = "Tudo Ok"
+                    } else {
+                        alerta.innerHTML = "Ram Muito Alta"
+                    }
+
+                    if (alerta.innerHTML == "Tudo Ok") {
+                        alerta.style.color = "#88FFDB"
+                    } else {
+                        alerta.style.color = "#e40909"
+                    }
+
                     // finalizarAguardar();
                 });
             } else {
@@ -536,9 +575,8 @@
     // atualizarFeedMensalRam
 
     function mesRam() {
-        var escolha = escolhaMesRam.value
         var idMaquina = sessionStorage.ID_MAQUINA
-        fetch(`/avisos/listarMensalRam/${idMaquina}/${escolha}`).then(function (resposta) {
+        fetch(`/avisos/listarMensalRam/${idMaquina}`).then(function (resposta) {
             console.log("entrei cria")
             if (resposta.ok) {
                 if (resposta.status == 204) {
@@ -556,7 +594,7 @@
 
                     for (let i = 0; i < resposta.length; i++) {
                         var publicacao = resposta[i];
-                        feed.innerHTML = `
+                        feed.innerHTML += `
                                  ${publicacao.porcentagem}%
                             `
                     }

@@ -71,20 +71,31 @@ function listarUsb(idMaquina) {
 function listarJanela(idMaquina) {
     console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarJanela()");
     var instrucao = `
-    select idJanela, tituloJanela, fkMaquina  from Janela join Maquina on fkMaquina = idMaquina where fkMaquina = ${idMaquina};
+    select idJanela, tituloJanela, fkMaquina  from Janela join Maquina on fkMaquina = idMaquina where fkMaquina = ${idMaquina} and statusJanela = 1;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
-function janelaMes(idMaquina, escolhaMes) {
+function janelaMes(idMaquina) {
     console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function janelaMes()");
     var instrucao = `
-    SELECT date_format(dtJanela, '%m') as mes, count(tituloJanela) as dados
-    FROM Janela
-    JOIN Maquina ON fkMaquina = ${idMaquina}
-    WHERE MONTH(dtJanela) = ${escolhaMes}
-    GROUP BY date_format(dtJanela, '%m');
+    SELECT count(tituloJanela) as janelaMensal
+FROM Janela where fkMaquina = ${idMaquina} and
+ MONTH(dtjanela) = MONTH((SELECT MAX(dtjanela) FROM Janela))
+  AND YEAR(dtjanela) = YEAR((SELECT MAX(dtjanela) FROM Janela));
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function janelaAtivas(idMaquina) {
+    console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function janelaMes()");
+    var instrucao = `
+    SELECT COUNT(*) AS janelasAtivas
+FROM Janela
+INNER JOIN Maquina ON Janela.fkMaquina = Maquina.idMaquina
+WHERE Janela.statusJanela = 1 AND Janela.fkMaquina = ${idMaquina};
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -102,15 +113,13 @@ function listarRam(idMaquina) {
     return database.executar(instrucao);
 }
 
-function listarMensalRam(idMaquina, escolha) {
+function listarMensalRam(idMaquina) {
     console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarMensalRam()");
-    var instrucao = `
-    SELECT date_format(dataHora, '%m') as mes, max(porcentagem) as porcentagem
-FROM Monitoramento
-JOIN Maquina ON fkMaquina = ${idMaquina}
-WHERE MONTH(dataHora) = ${escolha}
- and  fkComponente = 3  
-GROUP BY date_format(dataHora, '%m');
+    var instrucao = `SELECT max(porcentagem) as porcentagem
+    FROM Monitoramento where fkMaquina = ${idMaquina} and
+    fkComponente = 3 and
+     MONTH(dataHora) = MONTH((SELECT MAX(dataHora) FROM Monitoramento))
+      AND YEAR(dataHora) = YEAR((SELECT MAX(dataHora) FROM Monitoramento));
 ;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -205,6 +214,7 @@ module.exports = {
     verificarSetor,
     listarUsb,
     listarJanela,
+    janelaAtivas,
     janelaMes,
     listarRam,
     listarMensalRam,

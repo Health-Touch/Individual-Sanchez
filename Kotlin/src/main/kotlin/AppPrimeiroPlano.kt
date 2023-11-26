@@ -26,6 +26,9 @@ fun main() {
 
     if (Colaborador != 0){
         if (Colaborador != null){
+            var email = colaborador.email
+            var senha = colaborador.senha
+           var fk_empresa = repositorio.buscarfkEmpresa(email, senha)
             JOptionPane.showMessageDialog(null, """
                 Bem vindo ${colaborador.nome}!!!
                 Você está dentro do Sistema da Health Touch.
@@ -47,11 +50,11 @@ fun main() {
 
                 when(opcao){
                     1 -> {
-                        val id =  JOptionPane.showInputDialog("""
+                        val id_maquina =  JOptionPane.showInputDialog("""
                             Qual é o Id da máquina que você quer capturar ?
                         """.trimIndent()).toInt()
 
-                        val vmaquina =   repositorio.validarMaquina(id)
+                        val vmaquina =   repositorio.validarMaquina(id_maquina)
 
                         if (vmaquina != null) {
                             if (vmaquina != 0) {
@@ -65,13 +68,12 @@ fun main() {
                                 )
 
 
-                                repositorio.buscaridMaquina(id)
-                                repositorio.buscarfkEmpresa(id)
-                                repositorio.buscarfkTipoMaquina(id)
-                                repositorio.buscarfkPlanoEmpresa(id)
-                                repositorio.cadastrarjanela(campoJanela)
-
-
+                                repositorio.buscaridMaquina(id_maquina)
+                                repositorio.buscarfkEmpresa(email, senha)
+                                repositorio.buscarfkTipoMaquina(id_maquina)
+                                repositorio.buscarfkPlanoEmpresa(id_maquina)
+                                var novaJanela = repositorio.capturarDadosJ(locca)
+                                repositorio.cadastrarJanela(novaJanela, id_maquina, fk_empresa)
 
                             }
                         }
@@ -82,21 +84,12 @@ fun main() {
                             """.trimIndent())
                         }
 
-
-
-
-
                     }
                     2 -> {
                         break
                     }
 
             }
-
-
-
-
-
         }
     }
     else {

@@ -115,9 +115,8 @@ function listarJanela(req, res) {
 }
 
 function janelaMes(req, res) {
-    var escolhaMes = req.params.escolhaMes
     var idMaquina = req.params.idMaquina
-    avisoModel.janelaMes(idMaquina, escolhaMes).then(function (resultado) {
+    avisoModel.janelaMes(idMaquina).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -130,6 +129,20 @@ function janelaMes(req, res) {
     });
 }
 
+function janelaAtivas(req, res) {
+    var idMaquina = req.params.idMaquina
+    avisoModel.janelaAtivas(idMaquina).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
 function listarRam(req, res) {
     var idMaquina = req.params.idMaquina
     avisoModel.listarRam(idMaquina).then(function (resultado) {
@@ -145,9 +158,8 @@ function listarRam(req, res) {
     });
 }
 function listarMensalRam(req, res) {
-    var escolha = req.params.escolha
     var idMaquina = req.params.idMaquina
-    avisoModel.listarMensalRam(idMaquina, escolha).then(function (resultado) {
+    avisoModel.listarMensalRam(idMaquina).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -295,6 +307,7 @@ module.exports = {
     listarTodosFuncionarios,
     listarUsb,
     listarJanela,
+    janelaAtivas,
     janelaMes,
     listarRam,
     listarMensalRam,
