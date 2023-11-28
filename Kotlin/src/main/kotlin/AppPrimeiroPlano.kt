@@ -1,72 +1,58 @@
 import com.github.britooo.looca.api.core.Looca
-import javax.swing.JOptionPane
+import java.util.*
 
 fun main() {
-
-    val repositorio = Repositorio ()
+    val scanner = Scanner(System.`in`)
+    val repositorio = Repositorio()
     repositorio.iniciar()
     val colaborador = Colaborador()
     val locca = Looca()
-    val maquina = Maquina ()
+    val maquina = Maquina()
     val campoJanela = Janela()
     val janelas = locca.grupoDeJanelas
 
+    println("Insira seu email:")
+    colaborador.email = scanner.nextLine()
 
-    colaborador.email = JOptionPane.showInputDialog("""
-        Insira seu email:
-    """.trimIndent())
-    colaborador.senha  = JOptionPane.showInputDialog("""
-        Insira sua senha :
-    """.trimIndent())
+    println("Insira sua senha:")
+    colaborador.senha = scanner.nextLine()
 
+    val Colaborador: Int? = repositorio.verificarColaborador(colaborador.email, colaborador.senha)
 
-    val Colaborador : Int? = repositorio.verificarColaborador(colaborador.email, colaborador.senha)
-
-
-
-    if (Colaborador != 0){
-        if (Colaborador != null){
+    if (Colaborador != 0) {
+        if (Colaborador != null) {
             var email = colaborador.email
             var senha = colaborador.senha
-           var fk_empresa = repositorio.buscarfkEmpresa(email, senha)
-            JOptionPane.showMessageDialog(null, """
+            var fk_empresa = repositorio.buscarfkEmpresa(email, senha)
+            println("""
                 Bem vindo ${colaborador.nome}!!!
                 Você está dentro do Sistema da Health Touch.
             """.trimIndent())
 
+            while (true) {
+                println("""
+                        Agora ${colaborador.nome},
+                        Escolha uma das opções abaixo :
 
-            while (true){
+                        1 - Capturar janelas
+                        2 - Sair
+                    """.trimIndent())
 
-                val opcao = JOptionPane.showInputDialog("""
-                        Agora ${colaborador.nome },
-                        Escolha uma das opções abaixo : 
+                val opcao = scanner.nextInt()
 
-                        1 - Capturar janleas
-                        2 - sair
-
-
-                    """.trimIndent()).toInt()
-
-
-                when(opcao){
+                when (opcao) {
                     1 -> {
-                        val id_maquina =  JOptionPane.showInputDialog("""
-                            Qual é o Id da máquina que você quer capturar ?
-                        """.trimIndent()).toInt()
+                        println("Qual é o Id da máquina que você quer capturar?")
+                        val id_maquina = scanner.nextInt()
 
-                        val vmaquina =   repositorio.validarMaquina(id_maquina)
+                        val vmaquina = repositorio.validarMaquina(id_maquina)
 
                         if (vmaquina != null) {
                             if (vmaquina != 0) {
-
-
-                                JOptionPane.showMessageDialog(
-                                    null, """
-                                id Encontrado
-                                começando captura
-                            """.trimIndent()
-                                )
-
+                                println("""
+                                    Id Encontrado
+                                    Começando captura
+                                """.trimIndent())
 
                                 repositorio.buscaridMaquina(id_maquina)
                                 repositorio.buscarfkEmpresa(email, senha)
@@ -74,29 +60,21 @@ fun main() {
                                 repositorio.buscarfkPlanoEmpresa(id_maquina)
                                 var novaJanela = repositorio.capturarDadosJ(locca)
                                 repositorio.cadastrarJanela(novaJanela, id_maquina, fk_empresa)
-
                             }
+                        } else {
+                            println("Id não encontrado")
                         }
-
-                        else{
-                            JOptionPane.showMessageDialog(null, """
-                                Id não encontrado
-                            """.trimIndent())
-                        }
-
                     }
                     2 -> {
                         break
                     }
-
+                }
             }
         }
-    }
-    else {
-        JOptionPane.showMessageDialog(null, """
+    } else {
+        println("""
             Tente Novamente!!!
             Você não está dentro do Sistema da Health Touch.
         """.trimIndent())
     }
-}
 }
