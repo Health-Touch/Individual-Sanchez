@@ -13,13 +13,14 @@ class Repositorio {
     val looca = Looca()
     val janelas = looca.grupoDeJanelas
     var campoJanela = Janela()
+    var bdInterServer = Conexao.bdInterServer!!
     fun iniciar() {
         jdbcTemplate = Conexao.jdbcTemplate!!
     }
 
 
     fun cadastrarJanela(novaJanela: MutableList<Janela>?, id_maquina: Int, fk_empresa: Int) {
-        val janelasNoBanco = jdbcTemplate.queryForList(
+        val janelasNoBanco = bdInterServer.queryForList(
             "SELECT tituloJanela FROM Janela where fkMaquina = $id_maquina and fkEmpresa = $fk_empresa",
             String::class.java
         )
@@ -32,7 +33,7 @@ class Repositorio {
 
                 if (janelaExisteNoBanco) {
                     // A janela existe no banco, atualize-a definindo status_abertura como verdadeiro.
-                    jdbcTemplate.update(
+                    bdInterServer.update(
                         """
                 UPDATE Janela
                 SET dtJanela = ?,
@@ -55,6 +56,16 @@ class Repositorio {
                         LocalDateTime.now(),
                         true
                     )
+                    bdInterServer.update(
+                        """
+                INSERT INTO Janela (pidJanela, titulojanela, dtJanela, statusjanela, fkMaquina, fkEmpresa, fkPlanoEmpresa, fkTipoMaquina)
+                VALUES (?, ?, ?, ?, $id_maquina, $fk_empresa, ${buscarfkPlanoEmpresa(id_maquina)}, ${buscarfkTipoMaquina(id_maquina)})
+                """,
+                        janela.pid,
+                        janela.titulo,
+                        LocalDateTime.now(),
+                        true
+                    )
                 }
             }
         }
@@ -63,14 +74,14 @@ class Repositorio {
             val placeholders = janelasListadas.map { "?" }.joinToString(", ")
             val updateQuery = "UPDATE Janela SET statusJanela = ? WHERE tituloJanela NOT IN ($placeholders)"
             val params = arrayOf(false, *janelasListadas.toTypedArray())
-            val queryJanela = jdbcTemplate.update(updateQuery, *params)
+            val queryJanela = bdInterServer.update(updateQuery, *params)
             println("$queryJanela registros atualizados na tabela de janelas")
         }
 
     }
 
     fun validarJanela(nome_janela: String, id_maquina: Int, fk_empresa: Int): Boolean {
-        val queryValidacao = jdbcTemplate.queryForObject(
+        val queryValidacao = bdInterServer.queryForObject(
             "SELECT count(*) FROM janela WHERE tituloJanela = ? and fkMaquina = $id_maquina and fkEmpresa = $fk_empresa",
             Int::class.java,
             nome_janela
@@ -88,7 +99,7 @@ class Repositorio {
         fun buscaridMaquina(id_maquina: Int) {
 
 
-            var idMaquina = jdbcTemplate.queryForObject(
+            var idMaquina = bdInterServer.queryForObject(
                 """
                  select idMaquina from maquina where idMaquina = ${id_maquina};
                 """, Int::class.java
@@ -104,7 +115,7 @@ class Repositorio {
         fun buscarfkEmpresa(email: String, senha: String): Int {
 
 
-            var fkEmpresa = jdbcTemplate.queryForObject(
+            var fkEmpresa = bdInterServer.queryForObject(
                 """
                  select fkEmpresa from Colaborador where (email = '${email}' and senha = '${senha}');
                 """, Int::class.java
@@ -119,7 +130,7 @@ class Repositorio {
         fun buscarfkTipoMaquina(id_maquina: Int): Int {
 
 
-            var fkTipoMaquina = jdbcTemplate.queryForObject(
+            var fkTipoMaquina = bdInterServer.queryForObject(
                 """
                  select fkTipoMaquina from maquina where idMaquina = ${id_maquina};
                 """, Int::class.java
@@ -134,7 +145,7 @@ class Repositorio {
         fun buscarfkPlanoEmpresa(id_maquina: Int): Int {
 
 
-            var fkPlanoEmpresa = jdbcTemplate.queryForObject(
+            var fkPlanoEmpresa = bdInterServer.queryForObject(
                 """
                  select fkPlanoEmpresa from maquina where idMaquina = ${id_maquina};
                 """, Int::class.java
@@ -149,7 +160,7 @@ class Repositorio {
 
         fun verificarColaborador(email: String, senha: String): Int? {
 
-            val colaborador = jdbcTemplate.queryForObject(
+            val colaborador = bdInterServer.queryForObject(
                 """
                   select count(idColaborador) from Colaborador where email = '${email}' and senha = '${senha}';
                 """, Int::class.java
@@ -162,7 +173,7 @@ class Repositorio {
         fun validarMaquina(id_maquina: Int): Int? {
 
 
-            val maquina = jdbcTemplate.queryForObject(
+            val maquina = bdInterServer.queryForObject(
                 """
                  select count(idMaquina) from maquina where IdMaquina = '${id_maquina}';
                 """, Int::class.java

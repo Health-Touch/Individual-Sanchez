@@ -15,6 +15,19 @@ object Conexao {
                 return field
             }
 
+    var bdInterServer: JdbcTemplate? = null
+        get() {
+            if (field == null) {
+                val dataSoruceServer = BasicDataSource()
+                dataSoruceServer.url = "jdbc:sqlserver://54.145.218.19;databaseName=HealthTouch;encrypt=false";
+                dataSoruceServer.driverClassName = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+                dataSoruceServer.username = "sa"
+                dataSoruceServer.password = "urubu100"
+                bdInterServer = JdbcTemplate(dataSoruceServer)
+            }
+            return field
+        }
+
         fun criarTabelas() {
             jdbcTemplate!!.execute(
                 """
@@ -22,6 +35,7 @@ object Conexao {
             idJanela  INT auto_increment,
             pidJanela int,
             tituloJanela varchar(45),
+            dtJanela datetime,
             fkMaquina int, constraint foreign key(fkMaquina) references Maquina(idMaquina),
             fkEmpresa int, constraint foreign key(fkEmpresa) references Empresa(idEmpresa),
             fkPlanoEmpresa int, constraint foreign key(fkPlanoEmpresa) references Plano(idPlano),
