@@ -3,33 +3,25 @@ import time
 import platform
 import datetime
 from mysql.connector import connect
+import pymysql
 
-conn = connect(
+connection = pymysql.connect(
     host='localhost',
     user='root',
     password='biel2004',
-    database='HealthTouch'
+    database='HealthTouch',
+    charset='utf8mb4',
+    cursorclass=pymysql.cursors.DictCursor
 )
 
 print("Bem Vindo à Aplicação Health Touch")
 email = input("Digite seu e-mail:")
 senha = input("Digite sua senha:")
-cursor = conn.cursor()
+cursor = connection.cursor()
 # puxando a fk empresa
 query = "SELECT fkEmpresa FROM Colaborador WHERE email = %s AND senha = %s"
 cursor.execute(query, (email, senha))
 fkEmpresa = cursor.fetchone()
-
-def mysql_connection(host, user, passwd, database=None):
-    connection = connect(
-        host=host,
-        user=user,
-        passwd=passwd,
-        database=database
-    )
-    return connection
-    
-connection = mysql_connection('localhost', 'root', 'biel2004', 'HealthTouch')
 
 idMaquinaSelect = input("Qual o ID da máquina que você quer monitorar?")
 query = "SELECT idMaquina FROM Maquina WHERE idMaquina = %s"
@@ -40,35 +32,40 @@ if idMaquinaInsert:
     print("Iniciando o Monitoramento")
 
     # Puxando a fkPlanoEmpresa
-    query = "SELECT fkPlanoEmpresa FROM Maquina WHERE idMaquina = %s"
+    query = "SELECT fkPlanoEmpresa, fkTipoMaquina FROM Maquina WHERE idMaquina = %s"
     cursor.execute(query, (idMaquinaSelect,))
-    fkPlanoEmpresa = cursor.fetchone()
+    result = cursor.fetchone()
 
-    # Puxando a fkTipoMaquina
-    query = "SELECT fkTipoMaquina FROM Maquina WHERE idMaquina = %s"
-    cursor.execute(query, (idMaquinaSelect,))
-    fkTipoMaquina = cursor.fetchone()
+    fkPlanoEmpresa = result['fkPlanoEmpresa']
+    fkTipoMaquina = result['fkTipoMaquina']
 
     while True:
-        uso_Ram = round(psutil.virtual_memory().percent,2)
+        print("idMaquinaInsert:", idMaquinaInsert)
+        print("fkPlanoEmpresa:", fkPlanoEmpresa)
+        print("fkTipoMaquina:", fkTipoMaquina)
+        print("fkEmpresa:", fkEmpresa)
+
+        uso_Ram = round(psutil.virtual_memory().percent, 2)
         data = datetime.datetime.now()
 
-        query = '''
-        insert into Monitoramento(porcentagem, dataHora, fkComponente, fkMaquina, fkPlanoEmpresa, fkTipoMaquina, fkEmpresaMaquina)
-        VALUES (%s, %s, %s, %s, %s, %s, %s);
-        '''
-        insert = [
-            uso_Ram, data, 3, idMaquinaInsert[0], fkPlanoEmpresa[0], fkTipoMaquina[0], fkEmpresa[0]
-        ]
-        #[0] pra vir o dado especifico( Só o numero)
+        
+        
+        if fkPlanoEmpresa is not None and fkTipoMaquina is not None and fkEmpresa is not None:
+            query = '''
+            INSERT INTO Monitoramento(porcentagem, dataHora, fkComponente, fkMaquina, fkPlanoEmpresa, fkTipoMaquina, fkEmpresaMaquina)
+            VALUES (%s, %s, %s, %s, %s, %s, %s);
+            '''
+            insert = [
+                uso_Ram, data, 3, idMaquinaInsert['idMaquina'], fkPlanoEmpresa, fkTipoMaquina, fkEmpresa['fkEmpresa'] 
+            ]
 
-        cursor = connection.cursor()
-        cursor.execute(query, insert)
-        connection.commit()
+            cursor.execute(query, insert)
+            connection.commit()
 
-        print(f"Uso da Memória: {uso_Ram}%\r\n")
+            print(f"Uso da Memória: {uso_Ram}%\r\n")
+        else:
+            print("Algum valor do banco de dados está vazio")
 
         time.sleep(2)
-
 else:
     print("Máquina não está cadastrada")
